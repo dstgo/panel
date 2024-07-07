@@ -15,13 +15,15 @@ jobs:
         with:
           node-version: 20
 
-      - name: Install pnpm
+      - name: Pnpm
         uses: pnpm/action-setup@v2
         with:
           version: 9
-        run: pnpm install --no-frozen-lockfile
 
-      - name: lint
+      - name: Install
+        run: pnpm install
+
+      - name: Lint
         run: pnpm lint
 
       - name: Build
