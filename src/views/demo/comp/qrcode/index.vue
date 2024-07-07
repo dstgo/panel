@@ -79,7 +79,7 @@
   </PageWrapper>
 </template>
 <script lang="ts" setup>
-  import LogoImg from '@/assets/images/logo.png';
+  import LogoImg from '@/assets/images/applogo.png';
   import { CollapseContainer } from '@/components/Container';
   import { PageWrapper } from '@/components/Page';
   import { QrCode, QrCodeActionType } from '@/components/Qrcode';
