@@ -19,12 +19,11 @@ jobs:
         uses: pnpm/action-setup@v2
         with:
           version: 9
-          run_install: false
+        run: pnpm install --no-frozen-lockfile
+
+      - name: lint
+        run: pnpm lint
 
       - name: Build
-        env:
-          NODE_OPTIONS: '--max_old_space_size=4096'
-        run: |
-          pnpm install --no-frozen-lockfile
-          pnpm build
+        run: pnpm build
 
