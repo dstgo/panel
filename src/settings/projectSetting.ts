@@ -75,8 +75,8 @@ const setting: ProjectConfig = {
     // Whether to show the notification button
     showNotice: true,
     // Whether to display the menu search
-    showSearch: true,
-    showApi: true,
+    showSearch: false,
+    showApi: false,
   },
 
   // Menu configuration
@@ -103,9 +103,9 @@ const setting: ProjectConfig = {
     // Menu mode
     mode: MenuModeEnum.INLINE,
     // Menu type
-    type: MenuTypeEnum.SIDEBAR,
+    type: MenuTypeEnum.MIX_SIDEBAR,
     // Menu theme
-    theme: ThemeEnum.DARK,
+    theme: ThemeEnum.LIGHT,
     // Split menu
     split: false,
     // Top menu layout

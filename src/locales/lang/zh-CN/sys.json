@@ -66,9 +66,7 @@
     "signUpFormTitle": "注册",
     "forgetFormTitle": "重置密码",
     "signInTitle": "开源分布式饥荒专用服务器管理面板",
-    "signInDesc": "轻松，便捷地管理多个节点的服务器集群",
-    "policy": "我同意xxx隐私政策",
-    "scanSign": "扫码后点击\"确认\"，即可完成登录",
+    "signInDesc": "轻松，便捷地管理多节点服务器集群！",
     "loginButton": "登录",
     "registerButton": "注册",
     "rememberMe": "记住我",
@@ -79,14 +77,12 @@
     "accountPlaceholder": "请输入账号",
     "passwordPlaceholder": "请输入密码",
     "smsPlaceholder": "请输入验证码",
-    "mobilePlaceholder": "请输入手机号码",
-    "policyPlaceholder": "勾选后才能注册",
+    "emailPlaceholder": "请输入邮件地址",
     "diffPwd": "两次输入密码不一致",
     "userName": "账号",
     "password": "密码",
     "confirmPassword": "确认密码",
-    "email": "邮箱",
-    "smsCode": "短信验证码",
-    "mobile": "手机号码"
+    "email": "邮箱地址",
+    "mailCode": "邮箱验证码"
   }
 }

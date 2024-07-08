@@ -11,13 +11,13 @@
       </FormItem>
 
       <FormItem name="mobile" class="enter-x">
-        <Input size="large" v-model:value="formData.mobile" :placeholder="t('sys.login.mobile')" />
+        <Input size="large" v-model:value="formData.mobile" :placeholder="t('sys.login.email')" />
       </FormItem>
       <FormItem name="sms" class="enter-x">
         <CountdownInput
           size="large"
           v-model:value="formData.sms"
-          :placeholder="t('sys.login.smsCode')"
+          :placeholder="t('sys.login.mailCode')"
         />
       </FormItem>
 

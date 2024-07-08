@@ -1,0 +1,12 @@
+{
+  "title": "About",
+  "description": "is a distributed panel dedicated to managing Don't Starve server clusters. It uses a containerized solution to build clusters, allowing for elastic scaling and flexible management.",
+  "version": "Version",
+  "lastBuildTime": "Build At",
+  "preview": "Preview",
+  "document": "Document",
+  "github": "Github",
+  "devdep": "Development dependencies",
+  "prodep": "Production dependencies",
+  "projectInfo":"Project Info"
+}

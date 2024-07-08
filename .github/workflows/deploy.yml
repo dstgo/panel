@@ -6,7 +6,6 @@ on:
       - main
 
 jobs:
-
   deploy_test:
     runs-on: ubuntu-latest
     steps:
@@ -28,4 +27,3 @@ jobs:
 
       - name: Build
         run: pnpm build
-

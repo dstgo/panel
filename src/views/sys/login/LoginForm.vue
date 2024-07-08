@@ -45,7 +45,14 @@
     </ARow>
 
     <FormItem class="enter-x">
-      <Button class="mb-4" type="primary" size="large" block @click="handleLogin" :loading="loading">
+      <Button
+        class="mb-4"
+        type="primary"
+        size="large"
+        block
+        @click="handleLogin"
+        :loading="loading"
+      >
         {{ t('sys.login.loginButton') }}
       </Button>
 
@@ -53,28 +60,27 @@
         {{ t('sys.login.registerButton') }}
       </Button>
     </FormItem>
-
     <Divider class="enter-x">{{ t('sys.login.otherSignIn') }}</Divider>
 
     <div class="flex justify-evenly enter-x" :class="`${prefixCls}-sign-in-way`">
       <GithubFilled />
-      <WechatFilled />
       <QqOutlined />
+      <WechatFilled />
     </div>
   </Form>
 </template>
 <script lang="ts" setup>
-  import { reactive, ref, unref, computed } from 'vue';
+  import { computed, reactive, ref, unref } from 'vue';
 
-  import { Checkbox, Form, Input, Row, Col, Button, Divider } from 'ant-design-vue';
-  import { GithubFilled, WechatFilled, QqOutlined } from '@ant-design/icons-vue';
+  import { Button, Checkbox, Col, Divider, Form, Input, Row } from 'ant-design-vue';
+  import { GithubFilled, QqOutlined, WechatFilled } from '@ant-design/icons-vue';
   import LoginFormTitle from './LoginFormTitle.vue';
 
   import { useI18n } from '@/hooks/web/useI18n';
   import { useMessage } from '@/hooks/web/useMessage';
 
   import { useUserStore } from '@/store/modules/user';
-  import { LoginStateEnum, useLoginState, useFormRules, useFormValid } from './useLogin';
+  import { LoginStateEnum, useFormRules, useFormValid, useLoginState } from './useLogin';
   import { useDesign } from '@/hooks/web/useDesign';
   //import { onKeyStroke } from '@vueuse/core';
 

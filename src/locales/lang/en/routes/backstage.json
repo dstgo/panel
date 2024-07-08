@@ -1,0 +1,29 @@
+{
+  "node": {
+    "title": "Node",
+    "overview": "Node Overview"
+  },
+  "dashboard": {
+    "title": "Overview",
+    "workbench": "Workbench"
+  },
+  "apikey": {
+    "title": "Token",
+    "overview": "Token Overview"
+  },
+  "server": {
+    "title": "Server",
+    "overview": "Server Overview"
+  },
+  "system": {
+    "title": "System",
+    "user": "User",
+    "role": "Permission",
+    "cron": "Cron",
+    "config": "Project"
+  },
+  "about": {
+    "title": "About",
+    "overview": "Project Information"
+  }
+}

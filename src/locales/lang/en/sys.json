@@ -79,7 +79,7 @@
     "accountPlaceholder": "Please input username",
     "passwordPlaceholder": "Please input password",
     "smsPlaceholder": "Please input sms code",
-    "mobilePlaceholder": "Please input mobile",
+    "emailPlaceholder": "Please input mobile",
     "policyPlaceholder": "Register after checking",
     "diffPwd": "The two passwords are inconsistent",
     "userName": "Username",

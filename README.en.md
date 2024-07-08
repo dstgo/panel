@@ -2,9 +2,7 @@
 <img alt="Wendy Panel" width="300" height="300" src="./src/assets/images/wendy.png">
 <br>
 
-![GitHub](https://img.shields.io/github/license/dstgo/wendy-pro)
-![Static Badge](https://img.shields.io/badge/vue-3-green)
-![Static Badge](https://img.shields.io/badge/vite-5-green)
+![GitHub](https://img.shields.io/github/license/dstgo/wendy-pro) ![Static Badge](https://img.shields.io/badge/vue-3-green) ![Static Badge](https://img.shields.io/badge/vite-5-green)
 
 <h1>Wendy Panel</h1>
 
@@ -19,8 +17,6 @@ Wendy Panel is a distributed Don't Starve Together management panel for managing
 <br/>
 
 Document : [Docs | Wendy Panel](https://wendy.dstgo.cn/)
-
-
 
 ## Contribution
 

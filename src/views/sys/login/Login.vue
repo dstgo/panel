@@ -1,17 +1,19 @@
 <template>
   <div :class="prefixCls" class="relative w-full h-full px-4">
-    <div class="flex items-center absolute right-4 top-4">
-      <AppDarkModeToggle class="enter-x mr-2" v-if="!sessionTimeout" />
-      <AppLocalePicker
-        class="text-white enter-x xl:text-gray-600"
-        :show-text="false"
-        v-if="!sessionTimeout && showLocale"
-      />
-    </div>
+    <div class="hidden sm:block">
+      <div class="flex items-center absolute right-4 top-4">
+        <AppDarkModeToggle class="enter-x mr-2" v-if="!sessionTimeout" />
+        <AppLocalePicker
+          class="text-white enter-x xl:text-gray-600"
+          :show-text="false"
+          v-if="!sessionTimeout && showLocale"
+        />
+      </div>
 
-    <span class="-enter-x xl:hidden">
-      <AppLogo :alwaysShowTitle="true" />
-    </span>
+      <span class="xl:hidden -enter-x align-center">
+        <AppLogo :alwaysShowTitle="true" />
+      </span>
+    </div>
 
     <div class="container relative h-full py-2 mx-auto sm:px-10">
       <div class="flex h-full">
@@ -39,8 +41,6 @@
             <LoginForm />
             <ForgetPasswordForm />
             <RegisterForm />
-            <!--            <MobileForm />-->
-            <!--            <QrCodeForm />-->
           </div>
         </div>
       </div>
@@ -56,8 +56,6 @@
   import { computed } from 'vue';
   import ForgetPasswordForm from './ForgetPasswordForm.vue';
   import LoginForm from './LoginForm.vue';
-  import MobileForm from './MobileForm.vue';
-  import QrCodeForm from './QrCodeForm.vue';
   import RegisterForm from './RegisterForm.vue';
 
   defineProps({

@@ -2,21 +2,13 @@
   <img alt="Wendy Panel" width="300" height="300" src="./src/assets/images/wendy.png">
 <br>
 
-![GitHub](https://img.shields.io/github/license/dstgo/wendy-pro)
-![Static Badge](https://img.shields.io/badge/vue-3-green)
-![Static Badge](https://img.shields.io/badge/vite-5-green)
-
-
-
+![GitHub](https://img.shields.io/github/license/dstgo/wendy-pro) ![Static Badge](https://img.shields.io/badge/vue-3-green) ![Static Badge](https://img.shields.io/badge/vite-5-green)
 
 <h1>Wendy Panel</h1>
 
 </div>
 
 [English](./README.en.md) | **简体中文**
-
-
-
 
 ## 介绍
 
@@ -26,8 +18,6 @@ Wendy Panel是一个分布式饥荒管理面板，用于管理[饥荒联机版](
 
 文档地址：[Docs | Wendy Panel](https://wendy.dstgo.cn/)
 
-
-
 ## 贡献
 
 1. 从本仓库fork
@@ -35,4 +25,3 @@ Wendy Panel是一个分布式饥荒管理面板，用于管理[饥荒联机版](
 3. 提交修改
 4. 向本仓库提交pr
 5. 等待pr被merge
-

@@ -1,0 +1,29 @@
+{
+  "node": {
+    "title": "节点",
+    "overview": "节点概览"
+  },
+  "dashboard": {
+    "title": "概览",
+    "workbench": "工作台"
+  },
+  "apikey": {
+    "title": "令牌",
+    "overview": "令牌概览"
+  },
+  "server": {
+    "title": "服务器",
+    "overview": "服务器概览"
+  },
+  "system": {
+    "title": "系统",
+    "user": "用户管理",
+    "role": "权限管理",
+    "cron": "定时任务",
+    "config": "项目设置"
+  },
+  "about": {
+    "title": "关于",
+    "overview": "项目信息"
+  }
+}
