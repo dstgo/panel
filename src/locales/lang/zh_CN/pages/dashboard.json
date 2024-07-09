@@ -1,0 +1,12 @@
+{
+  "header": {
+    "users": "用户",
+    "nodes": "节点",
+    "servers": "服务器",
+    "greeting": {
+      "morning": "早安",
+      "noon": "午安",
+      "night": "晚安"
+    }
+  }
+}
