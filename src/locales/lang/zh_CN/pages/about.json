@@ -8,5 +8,5 @@
   "github": "Github",
   "devdep": "开发环境依赖",
   "prodep": "生产环境依赖",
-  "projectInfo":"项目信息"
+  "projectInfo": "项目信息"
 }

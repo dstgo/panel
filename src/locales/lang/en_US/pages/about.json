@@ -8,5 +8,5 @@
   "github": "Github",
   "devdep": "Development dependencies",
   "prodep": "Production dependencies",
-  "projectInfo":"Project Info"
+  "projectInfo": "Project Info"
 }
