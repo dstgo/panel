@@ -5,8 +5,8 @@ export function createFakeUserList() {
   return [
     {
       userId: '1',
-      username: 'vben',
-      realName: 'Vben Admin',
+      username: 'wendy',
+      realName: 'Wendy',
       avatar: '',
       desc: 'manager',
       password: '123456',
@@ -55,7 +55,7 @@ export default [
         (item) => item.username === username && password === item.password,
       );
       if (!checkUser) {
-        return resultError('Incorrect account or password！');
+        return resultError('Incorrect account or password！', 'api.password_mismatch');
       }
       const { userId, username: _username, token, realName, desc, roles } = checkUser;
       return resultSuccess({

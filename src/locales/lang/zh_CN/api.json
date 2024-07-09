@@ -1,0 +1,16 @@
+{
+  "request_failed": "操作失败",
+  "request_ok": "操作成功",
+  "request_timeout": "操作超时",
+  "user_not_found": "用户不存在",
+  "user_already_exits": "用户已存在",
+  "password_mismatch": "密码错误",
+  "email_registered": "邮箱已被注册",
+  "code_retry": "请稍后重新申请验证码",
+  "code_mismatch": "验证码不正确",
+  "code_invalid": "非法的验证码",
+  "credential_invalid": "无效的凭证",
+  "credential_expired": "用户凭证已过期",
+  "credential_refresh": "用户凭证需要续签",
+  "server_busy": "服务器繁忙"
+}

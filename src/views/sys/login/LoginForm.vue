@@ -101,8 +101,8 @@
   const rememberMe = ref(false);
 
   const formData = reactive({
-    account: 'vben',
-    password: '123456',
+    account: '',
+    password: '',
   });
 
   const { validForm } = useFormValid(formRef);
@@ -130,7 +130,7 @@
       }
     } catch (error) {
       createErrorModal({
-        title: t('sys.api.errorTip'),
+        title: t('sys.tip.error'),
         content: (error as unknown as Error).message || t('sys.api.networkExceptionMsg'),
         getContainer: () => document.body.querySelector(`.${prefixCls}`) || document.body,
       });

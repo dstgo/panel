@@ -9,15 +9,13 @@ import { VAxios } from './Axios';
 import { checkStatus } from './checkStatus';
 import { useGlobSetting } from '@/hooks/setting';
 import { useMessage } from '@/hooks/web/useMessage';
-import { RequestEnum, ResultEnum, ContentTypeEnum } from '@/enums/httpEnum';
+import { RequestEnum, ContentTypeEnum } from '@/enums/httpEnum';
 import { isString, isUndefined, isNull, isEmpty } from '@/utils/is';
 import { getToken } from '@/utils/auth';
 import { setObjToUrlParams, deepMerge } from '@/utils';
 import { useErrorLogStoreWithOut } from '@/store/modules/errorLog';
 import { useI18n } from '@/hooks/web/useI18n';
 import { joinTimestamp, formatRequestDate } from './helper';
-import { useUserStoreWithOut } from '@/store/modules/user';
-import { AxiosRetry } from '@/utils/http/axios/axiosRetry';
 import axios from 'axios';
 
 const globSetting = useGlobSetting();
@@ -48,53 +46,38 @@ const transform: AxiosTransform = {
     const { data } = res;
     if (!data) {
       // return '[HTTP] Request has no return value';
-      throw new Error(t('sys.api.apiRequestFailed'));
+      throw new Error(t('api.request_failed'));
     }
     //  这里 code，result，message为 后台统一的字段，需要在 types.ts内修改为项目自己的接口返回格式
-    const { code, result, message } = data;
+    const { message, code } = data;
 
     // 这里逻辑可以根据项目进行修改
-    const hasSuccess = data && Reflect.has(data, 'code') && code === ResultEnum.SUCCESS;
+    const hasSuccess = data && code === 200;
+    console.log(data && code === 200);
     if (hasSuccess) {
       let successMsg = message;
 
       if (isNull(successMsg) || isUndefined(successMsg) || isEmpty(successMsg)) {
-        successMsg = t(`sys.api.operationSuccess`);
+        successMsg = t(`api.request_ok`);
       }
 
       if (options.successMessageMode === 'modal') {
-        createSuccessModal({ title: t('sys.api.successTip'), content: successMsg });
+        createSuccessModal({ title: t('sys.tip.success'), content: t(data.i18n) || successMsg });
       } else if (options.successMessageMode === 'message') {
-        createMessage.success(successMsg);
+        createMessage.success(t(data.i18n) || successMsg);
       }
-      return result;
+      return data.data;
     }
-
-    // 在此处根据自己项目的实际情况对不同的code执行不同的操作
-    // 如果不希望中断当前请求，请return数据，否则直接抛出异常即可
-    let timeoutMsg = '';
-    switch (code) {
-      case ResultEnum.TIMEOUT:
-        timeoutMsg = t('sys.api.timeoutMessage');
-        const userStore = useUserStoreWithOut();
-        // 被动登出，带redirect地址
-        userStore.logout(false);
-        break;
-      default:
-        if (message) {
-          timeoutMsg = message;
-        }
-    }
-
+    const errormsg = message;
     // errorMessageMode='modal'的时候会显示modal错误弹窗，而不是消息提示，用于一些比较重要的错误
     // errorMessageMode='none' 一般是调用时明确表示不希望自动弹出错误提示
     if (options.errorMessageMode === 'modal') {
-      createErrorModal({ title: t('sys.api.errorTip'), content: timeoutMsg });
+      createErrorModal({ title: t('sys.tip.error'), content: t(data.i18n) || errormsg });
     } else if (options.errorMessageMode === 'message') {
-      createMessage.error(timeoutMsg);
+      createMessage.error(t(data.i18n) || errormsg);
     }
 
-    throw new Error(timeoutMsg || t('sys.api.apiRequestFailed'));
+    throw new Error(t(data.i18n) || errormsg || t('api.request_failed'));
   },
 
   // 请求之前处理config
@@ -199,7 +182,7 @@ const transform: AxiosTransform = {
 
       if (errMessage) {
         if (errorMessageMode === 'modal') {
-          createErrorModal({ title: t('sys.api.errorTip'), content: errMessage });
+          createErrorModal({ title: t('sys.tip.error'), content: errMessage });
         } else if (errorMessageMode === 'message') {
           createMessage.error(errMessage);
         }
@@ -210,15 +193,6 @@ const transform: AxiosTransform = {
     }
 
     checkStatus(error?.response?.status, msg, errorMessageMode);
-
-    // 添加自动重试机制 保险起见 只针对GET请求
-    const retryRequest = new AxiosRetry();
-    const { isOpenRetry } = config.requestOptions.retryRequest;
-    config.method?.toUpperCase() === RequestEnum.GET &&
-      isOpenRetry &&
-      error?.response?.status !== 401 &&
-      // @ts-ignore
-      retryRequest.retry(axiosInstance, error);
     return Promise.reject(error);
   },
 };
@@ -230,8 +204,7 @@ function createAxios(opt?: Partial<CreateAxiosOptions>) {
       {
         // See https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication#authentication_schemes
         // authentication schemes，e.g: Bearer
-        // authenticationScheme: 'Bearer',
-        authenticationScheme: '',
+        authenticationScheme: 'Bearer',
         timeout: 10 * 1000,
         // 基础接口地址
         // baseURL: globSetting.apiUrl,
@@ -260,7 +233,7 @@ function createAxios(opt?: Partial<CreateAxiosOptions>) {
           // 接口拼接地址
           urlPrefix: urlPrefix,
           //  是否加入时间戳
-          joinTime: true,
+          joinTime: false,
           // 忽略重复请求
           ignoreCancelToken: true,
           // 是否携带token

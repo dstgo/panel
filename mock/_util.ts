@@ -1,12 +1,16 @@
 // Interface data format used to return a unified format
 import { ResultEnum } from '@/enums/httpEnum';
 
-export function resultSuccess<T = Recordable>(result: T, { message = 'ok' } = {}) {
+export function resultSuccess<T = Recordable>(
+  data: T,
+  { message = 'ok' } = {},
+  i18n = 'api.request_ok',
+) {
   return {
     code: ResultEnum.SUCCESS,
-    result,
+    i18n,
+    data,
     message,
-    type: 'success',
   };
 }
 
@@ -29,13 +33,14 @@ export function resultPageSuccess<T = any>(
 
 export function resultError(
   message = 'Request failed',
-  { code = ResultEnum.ERROR, result = null } = {},
+  i18n = 'sys.request.failed',
+  { code = 0, data = null } = {},
 ) {
   return {
     code,
-    result,
+    i18n,
+    data,
     message,
-    type: 'error',
   };
 }
 
@@ -58,5 +63,9 @@ export interface requestParams {
  *
  */
 export function getRequestToken({ headers }: requestParams): string | undefined {
-  return headers?.authorization;
+  const h = headers?.authorization?.split('Bearer ');
+  if (!h || h.length < 2) {
+    return undefined;
+  }
+  return h[1];
 }

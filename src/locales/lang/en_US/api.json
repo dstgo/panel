@@ -1,0 +1,16 @@
+{
+  "request_failed": "Operation failed",
+  "request_ok": "Operation successful",
+  "request_timeout": "Operation timed out",
+  "user_not_found": "User does not exist",
+  "user_already_exits": "User already exists",
+  "password_mismatch": "Password error",
+  "email_registered": "Email has been registered",
+  "code_retry": "Please reapply for verification code later",
+  "code_mismatch": "Verification code is incorrect",
+  "code_invalid": "Illegal verification code",
+  "credential_invalid": "Invalid credential",
+  "credential_expired": "User credential has expired",
+  "credential_refresh": "User credential needs to be renewed",
+  "server_busy": "Server is busy"
+}
