@@ -1,0 +1,15 @@
+{
+  "header": {
+    "users": "Users",
+    "nodes": "Nodes",
+    "servers": "Servers",
+    "greeting": {
+      "morning": "Good morning",
+      "noon": "Good afternoon",
+      "night": "Good night"
+    }
+  },
+  "nav": {
+    "title": "Quick Navigation"
+  }
+}

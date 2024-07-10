@@ -1,4 +1,13 @@
 import { ThemeEnum } from '../enums/appEnum';
+import wendy_2 from '@/assets/avatar/wendy_2.png';
+import wendy from '@/assets/avatar/wendy.png';
+import webber from '@/assets/avatar/webber.png';
+import wx78 from '@/assets/avatar/wx78.png';
+import willow from '@/assets/avatar/willow.png';
+
+export const DEFAULT_AVATAR = wendy_2;
+
+export const AVATAR_LIST = [wendy, wendy_2, webber, wx78, willow];
 
 export const prefixCls = 'vben';
 

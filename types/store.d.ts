@@ -38,10 +38,10 @@ export interface ErrorLogInfo {
 export interface UserInfo {
   userId: string | number;
   username: string;
-  realName: string;
+  email: string;
   avatar: string;
-  desc?: string;
-  homePath?: string;
+  description: string;
+  homePath: string;
   roles: RoleInfo[];
 }
 

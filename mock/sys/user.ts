@@ -6,7 +6,8 @@ export function createFakeUserList() {
     {
       userId: '1',
       username: 'wendy',
-      realName: 'Wendy',
+      email: '12345678@gmail.com',
+      description: '这人很懒，什么都没有写',
       avatar: '',
       desc: 'manager',
       password: '123456',
@@ -23,7 +24,8 @@ export function createFakeUserList() {
       userId: '2',
       username: 'test',
       password: '123456',
-      realName: 'test user',
+      email: 'test111@gmail.com',
+      description: '这人很懒，什么都没有写',
       avatar: '',
       desc: 'tester',
       token: 'fakeToken2',
@@ -57,13 +59,12 @@ export default [
       if (!checkUser) {
         return resultError('Incorrect account or password！', 'api.password_mismatch');
       }
-      const { userId, username: _username, token, realName, desc, roles } = checkUser;
+      const { userId, username: _username, token, desc, roles } = checkUser;
       return resultSuccess({
         roles,
         userId,
         username: _username,
         token,
-        realName,
         desc,
       });
     },

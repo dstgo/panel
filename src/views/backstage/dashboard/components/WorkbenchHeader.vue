@@ -1,32 +1,54 @@
 <template>
-  <div class="lg:flex">
-    <Avatar :src="userinfo.avatar || headerImg" :size="72" class="!mx-auto !block" />
-    <div class="md:ml-6 flex flex-col justify-center md:mt-0 mt-2">
-      <h1 class="md:text-lg text-md">早安, {{ userinfo.realName }}, 开始您一天的工作吧！</h1>
-      <span class="text-secondary"> 今日晴，20℃ - 32℃！ </span>
+  <div class="flex items-center flex-col md:flex-row">
+    <Avatar :src="userinfo.avatar || DEFAULT_AVATAR" :size="72" class="!mx-auto !block" />
+    <div class="md:ml-6 flex flex-col justify-center md:mt-0 mt-2 md:text-left text-center">
+      <h2 class="md:text-lg text-md mb-1">
+        {{ userinfo.username }} <span class="hidden md:inline">, {{ t(greeting) }} !</span></h2
+      >
+      <span class="text-secondary">
+        <MailOutlined />
+        {{ userinfo.email }}
+      </span>
+      <span class="text-secondary">
+        {{ userinfo.description }}
+      </span>
     </div>
-    <div class="flex flex-1 justify-end md:mt-0 mt-4">
+    <div class="flex flex-1 justify-center md:justify-end md:mt-0 mt-4">
       <div class="flex flex-col justify-center text-right">
-        <span class="text-secondary"> 待办 </span>
+        <span class="text-secondary"> {{ t('pages.dashboard.header.servers') }} </span>
         <span class="text-2xl">2/10</span>
       </div>
 
       <div class="flex flex-col justify-center text-right md:mx-16 mx-12">
-        <span class="text-secondary"> 项目 </span>
-        <span class="text-2xl">8</span>
+        <span class="text-secondary"> {{ t('pages.dashboard.header.nodes') }} </span>
+        <span class="text-2xl">7/8</span>
       </div>
       <div class="flex flex-col justify-center text-right md:mr-10 mr-4">
-        <span class="text-secondary"> 团队 </span>
+        <span class="text-secondary"> {{ t('pages.dashboard.header.users') }} </span>
         <span class="text-2xl">300</span>
       </div>
     </div>
   </div>
 </template>
 <script lang="ts" setup>
+  import { MailOutlined } from '@ant-design/icons-vue';
   import { computed } from 'vue';
   import { Avatar } from 'ant-design-vue';
   import { useUserStore } from '@/store/modules/user';
-  import headerImg from '@/assets/images/header.jpg';
+  import { DEFAULT_AVATAR } from '@/settings/designSetting';
+  import { useI18n } from '@/hooks/web/useI18n';
+
+  const { t } = useI18n();
+  const greeting = computed(() => {
+    let hours = new Date().getHours();
+    if (hours >= 18) {
+      return 'pages.dashboard.header.greeting.night';
+    } else if (hours >= 12) {
+      return 'pages.dashboard.header.greeting.noon';
+    } else {
+      return 'pages.dashboard.header.greeting.morning';
+    }
+  });
 
   const userStore = useUserStore();
   const userinfo = computed(() => userStore.getUserInfo);

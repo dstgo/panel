@@ -53,7 +53,6 @@ const transform: AxiosTransform = {
 
     // 这里逻辑可以根据项目进行修改
     const hasSuccess = data && code === 200;
-    console.log(data && code === 200);
     if (hasSuccess) {
       let successMsg = message;
 

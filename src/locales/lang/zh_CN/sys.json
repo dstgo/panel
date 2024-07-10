@@ -26,8 +26,18 @@
   },
   "app": {
     "logoutTip": "温馨提醒",
-    "logoutMessage": "是否确认退出系统?",
+    "logoutMessage": "是否确认退出面板?",
     "menuLoading": "菜单加载中..."
+  },
+  "drawer": {
+    "profile": "个人信息",
+    "docs": "项目文档",
+    "front": "切换前台",
+    "back": "切换后台",
+    "errorlog": "错误日志",
+    "bug": "问题反馈",
+    "projectInfo": "项目信息",
+    "logout": "退出登录"
   },
   "errorLog": {
     "tableTitle": "错误日志列表",

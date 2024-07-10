@@ -27,6 +27,16 @@
     "logoutMessage": "Confirm to exit the system?",
     "menuLoading": "Menu loading..."
   },
+  "drawer": {
+    "profile": "Profile",
+    "docs": "Document",
+    "front": "Front stage",
+    "back": "Back stage",
+    "errorlog": "Error logs",
+    "bug": "Bug Feedback",
+    "projectInfo": "Project info",
+    "logout": "Log out"
+  },
   "errorLog": {
     "tableTitle": "Error log list",
     "tableColumnType": "Type",

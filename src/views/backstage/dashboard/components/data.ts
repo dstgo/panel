@@ -1,3 +1,5 @@
+import { useI18n } from '@/hooks/web/useI18n';
+
 interface GroupItem {
   title: string;
   icon: string;
@@ -20,36 +22,38 @@ interface DynamicInfoItem {
   desc: string;
 }
 
+const { t } = useI18n();
+
 export const navItems: NavItem[] = [
   {
-    title: '首页',
-    icon: 'ion:home-outline',
-    color: '#1fdaca',
+    title: t('routes.backstage.node.title'),
+    icon: 'lucide:network',
+    color: '#1fcada',
   },
   {
-    title: '仪表盘',
-    icon: 'ion:grid-outline',
-    color: '#bf0c2c',
+    title: t('routes.backstage.server.title'),
+    icon: 'uil:server-alt',
+    color: '#0960BD',
   },
   {
-    title: '组件',
-    icon: 'ion:layers-outline',
-    color: '#e18525',
+    title: t('routes.backstage.system.user'),
+    icon: 'ph:users',
+    color: '#0A9E3E',
   },
   {
-    title: '系统管理',
+    title: t('routes.backstage.system.role'),
+    icon: 'mdi:administrator',
+    color: '#FFBB59',
+  },
+  {
+    title: t('routes.backstage.apikey.title'),
+    icon: 'tabler:key',
+    color: '#DF8A3A',
+  },
+  {
+    title: t('routes.backstage.system.config'),
     icon: 'ion:settings-outline',
-    color: '#3fb27f',
-  },
-  {
-    title: '权限管理',
-    icon: 'ion:key-outline',
-    color: '#4daf1bc9',
-  },
-  {
-    title: '图表',
-    icon: 'ion:bar-chart-outline',
-    color: '#00d8ff',
+    color: '#4d514d',
   },
 ];
 

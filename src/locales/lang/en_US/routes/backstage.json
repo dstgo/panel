@@ -8,7 +8,7 @@
     "workbench": "Workbench"
   },
   "apikey": {
-    "title": "Token",
+    "title": "Apikey",
     "overview": "Token Overview"
   },
   "server": {
@@ -20,7 +20,7 @@
     "user": "User",
     "role": "Permission",
     "cron": "Cron",
-    "config": "Project"
+    "config": "Setting"
   },
   "about": {
     "title": "About",

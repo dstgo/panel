@@ -5,6 +5,8 @@ export const UserDropDown = createAsyncComponent(() => import('./user-dropdown/i
   loading: true,
 });
 
+export const UserDrawer = createAsyncComponent(() => import('./user-drawer/index.vue'));
+
 export const LayoutBreadcrumb = createAsyncComponent(() => import('./Breadcrumb.vue'));
 
 export const Notify = createAsyncComponent(() => import('./notify/index.vue'));
