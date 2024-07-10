@@ -9,58 +9,60 @@
         </div>
       </div>
     </template>
-    <List :bordered="false" :split="false">
-      <ListItem class="list-item">
-        <span class="mr-2"><UserOutlined /></span>
-        {{ t('sys.drawer.profile') }}
-      </ListItem>
-      <ListItem class="list-item">
-        <span class="mr-2"> <BookOutlined /></span>
-        {{ t('sys.drawer.docs') }}
-      </ListItem>
-      <ListItem class="list-item">
-        <span class="mr-2"> <SplitCellsOutlined /></span>
-        {{ t('sys.drawer.front') }}
-      </ListItem>
-      <ListItem class="list-item">
-        <span class="mr-2"> <SplitCellsOutlined /></span>
-        {{ t('sys.drawer.back') }}
-      </ListItem>
-      <Divider class="mt-1 mb-1" />
-      <!--project zone-->
-      <ListItem
-        class="list-item"
-        @click="
-          jumpTo(() => {
-            go(PageEnum.ERROR_LOG_PAGE);
-          })
-        "
-      >
-        <span class="mr-2"> <WarningOutlined /></span>
-        {{ t('sys.drawer.errorlog') }}
-      </ListItem>
-      <ListItem
-        class="list-item"
-        @click="
-          jumpTo(() => {
-            go(PageEnum.ABOUT_PAGE);
-          })
-        "
-      >
-        <span class="mr-2"> <InfoCircleOutlined /></span>
-        {{ t('sys.drawer.projectInfo') }}
-      </ListItem>
-      <ListItem class="list-item" @click="toBugFix()">
-        <span class="mr-2"> <BugOutlined /></span>
-        {{ t('sys.drawer.bug') }}
-      </ListItem>
-      <!--logout zone-->
-      <Divider class="mt-1 mb-1" />
-      <ListItem class="list-item" @click="userStore.confirmLoginOut()">
-        <span class="mr-2"><LogoutOutlined /></span>
-        {{ t('sys.drawer.logout') }}
-      </ListItem>
-    </List>
+    <div :class="[prefixCls, `${prefixCls}--${theme}`]">
+      <List :bordered="false" :split="false">
+        <ListItem :class="`${prefixCls}__list-item`">
+          <span class="mr-2"><UserOutlined /></span>
+          {{ t('sys.drawer.profile') }}
+        </ListItem>
+        <ListItem :class="`${prefixCls}__list-item`">
+          <span class="mr-2"> <BookOutlined /></span>
+          {{ t('sys.drawer.docs') }}
+        </ListItem>
+        <ListItem :class="`${prefixCls}__list-item`">
+          <span class="mr-2"> <SplitCellsOutlined /></span>
+          {{ t('sys.drawer.front') }}
+        </ListItem>
+        <ListItem :class="`${prefixCls}__list-item`">
+          <span class="mr-2"> <SplitCellsOutlined /></span>
+          {{ t('sys.drawer.back') }}
+        </ListItem>
+        <Divider class="mt-1 mb-1" />
+        <!--project zone-->
+        <ListItem
+          :class="`${prefixCls}__list-item`"
+          @click="
+            jumpTo(() => {
+              go(PageEnum.ERROR_LOG_PAGE);
+            })
+          "
+        >
+          <span class="mr-2"> <WarningOutlined /></span>
+          {{ t('sys.drawer.errorlog') }}
+        </ListItem>
+        <ListItem
+          :class="`${prefixCls}__list-item`"
+          @click="
+            jumpTo(() => {
+              go(PageEnum.ABOUT_PAGE);
+            })
+          "
+        >
+          <span class="mr-2"> <InfoCircleOutlined /></span>
+          {{ t('sys.drawer.projectInfo') }}
+        </ListItem>
+        <ListItem :class="`${prefixCls}__list-item`" @click="toBugFix()">
+          <span class="mr-2"> <BugOutlined /></span>
+          {{ t('sys.drawer.bug') }}
+        </ListItem>
+        <!--logout zone-->
+        <Divider class="mt-1 mb-1" />
+        <ListItem :class="`${prefixCls}__list-item`" @click="userStore.confirmLoginOut()">
+          <span class="mr-2"><LogoutOutlined /></span>
+          {{ t('sys.drawer.logout') }}
+        </ListItem>
+      </List>
+    </div>
   </BasicDrawer>
 </template>
 
@@ -82,7 +84,10 @@
   import { useGo } from '@/hooks/web/usePage';
   import { PageEnum } from '@/enums/pageEnum';
   import { useI18n } from '@/hooks/web/useI18n';
+  import { useDesign } from '@/hooks/web/useDesign';
+  import { propTypes } from '@/utils/propTypes';
 
+  const { prefixCls } = useDesign('header-user-drawer');
   const { t } = useI18n();
   const [register, { closeDrawer }] = useDrawerInner();
   const go = useGo();
@@ -92,6 +97,9 @@
     return { avatar: avatar || DEFAULT_AVATAR, username, email };
   });
 
+  defineProps({
+    theme: propTypes.oneOf(['dark', 'light']),
+  });
   const jumpTo = (fn: Function) => {
     fn();
     closeDrawer();
@@ -102,18 +110,34 @@
   };
 </script>
 
-<style scoped>
-  .list-item {
-    transition: background-color ease-in-out 0.2s;
-    border-radius: 5px;
-    cursor: pointer;
-  }
+<style scoped lang="less">
+  @prefix-cls: ~'@{namespace}-header-user-drawer';
 
-  .list-item:hover {
-    background-color: #f0f0f0;
-  }
+  .@{prefix-cls} {
+    &__list-item {
+      transition: background-color ease-in-out 0.2s;
+      border-radius: 5px;
+      cursor: pointer;
+    }
 
-  .list-item:active {
-    background-color: #eceff2;
+    &--dark {
+      .@{prefix-cls}__list-item:hover {
+        background-color: #313131;
+      }
+
+      .@{prefix-cls}__list-item:active {
+        background-color: #515050;
+      }
+    }
+
+    &--light {
+      .@{prefix-cls}__list-item:hover {
+        background-color: #f0f0f0;
+      }
+
+      .@{prefix-cls}__list-item:active {
+        background-color: #eceff2;
+      }
+    }
   }
 </style>

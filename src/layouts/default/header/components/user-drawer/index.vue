@@ -3,7 +3,7 @@
     <span :class="[prefixCls, `${prefixCls}--${theme}`]" class="flex" @click="openDrawer(true)">
       <img :class="`${prefixCls}__header`" :src="getUserInfo.avatar" />
     </span>
-    <UserSettingDrawer @register="register" />
+    <UserSettingDrawer :theme="theme" @register="register" />
   </div>
 </template>
 
@@ -17,7 +17,7 @@
   import { useDrawer } from '@/components/Drawer';
 
   const userStore = useUserStore();
-  const { prefixCls } = useDesign('header-user-dropdown');
+  const { prefixCls } = useDesign('header-user-drawer');
 
   const [register, { openDrawer }] = useDrawer();
 
@@ -32,7 +32,7 @@
 </script>
 
 <style scoped lang="less">
-  @prefix-cls: ~'@{namespace}-header-user-dropdown';
+  @prefix-cls: ~'@{namespace}-header-user-drawer';
 
   .@{prefix-cls} {
     align-items: center;
@@ -52,6 +52,12 @@
       border-radius: 50%;
     }
 
+    &__list-item {
+      transition: background-color ease-in-out 0.2s;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
     &--dark {
       &:hover {
         background-color: @header-dark-bg-hover-color;
@@ -61,14 +67,6 @@
     &--light {
       &:hover {
         background-color: @header-light-bg-hover-color;
-      }
-
-      .@{prefix-cls}__name {
-        color: @text-color-base;
-      }
-
-      .@{prefix-cls}__desc {
-        color: @header-light-desc-color;
       }
     }
   }
