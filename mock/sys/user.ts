@@ -70,7 +70,7 @@ export default [
     },
   },
   {
-    url: '/api/getUserInfo',
+    url: '/api/user/info',
     method: 'get',
     response: (request: requestParams) => {
       const token = getRequestToken(request);
@@ -83,7 +83,7 @@ export default [
     },
   },
   {
-    url: '/api/getPermCode',
+    url: '/api/user/perm',
     timeout: 200,
     method: 'get',
     response: (request: requestParams) => {
