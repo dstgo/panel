@@ -12,19 +12,19 @@
     <div :class="[prefixCls, `${prefixCls}--${theme}`]">
       <List :bordered="false" :split="false">
         <ListItem :class="`${prefixCls}__list-item`">
-          <span class="mr-2"><UserOutlined /></span>
+          <span class="mr-2"><Icon icon="mingcute:profile-line" /></span>
           {{ t('sys.drawer.profile') }}
         </ListItem>
         <ListItem :class="`${prefixCls}__list-item`">
-          <span class="mr-2"> <BookOutlined /></span>
+          <span class="mr-2"> <Icon icon="tabler:book" /></span>
           {{ t('sys.drawer.docs') }}
         </ListItem>
         <ListItem :class="`${prefixCls}__list-item`">
-          <span class="mr-2"> <SplitCellsOutlined /></span>
+          <span class="mr-2"> <Icon icon="icon-park:switch" /></span>
           {{ t('sys.drawer.front') }}
         </ListItem>
         <ListItem :class="`${prefixCls}__list-item`">
-          <span class="mr-2"> <SplitCellsOutlined /></span>
+          <span class="mr-2"> <Icon icon="icon-park:switch" /></span>
           {{ t('sys.drawer.back') }}
         </ListItem>
         <Divider class="mt-1 mb-1" />
@@ -37,8 +37,12 @@
             })
           "
         >
-          <span class="mr-2"> <WarningOutlined /></span>
+          <span class="mr-2"> <Icon icon="ant-design:exception-outlined" /></span>
           {{ t('sys.drawer.errorlog') }}
+        </ListItem>
+        <ListItem :class="`${prefixCls}__list-item`" @click="toBugFix()">
+          <span class="mr-2"> <Icon icon="solar:bug-linear" /></span>
+          {{ t('sys.drawer.bug') }}
         </ListItem>
         <ListItem
           :class="`${prefixCls}__list-item`"
@@ -48,17 +52,13 @@
             })
           "
         >
-          <span class="mr-2"> <InfoCircleOutlined /></span>
+          <span class="mr-2"> <Icon icon="octicon:info-16" /></span>
           {{ t('sys.drawer.projectInfo') }}
-        </ListItem>
-        <ListItem :class="`${prefixCls}__list-item`" @click="toBugFix()">
-          <span class="mr-2"> <BugOutlined /></span>
-          {{ t('sys.drawer.bug') }}
         </ListItem>
         <!--logout zone-->
         <Divider class="mt-1 mb-1" />
         <ListItem :class="`${prefixCls}__list-item`" @click="userStore.confirmLoginOut()">
-          <span class="mr-2"><LogoutOutlined /></span>
+          <span class="mr-2"><Icon icon="ri:logout-box-r-line" /></span>
           {{ t('sys.drawer.logout') }}
         </ListItem>
       </List>
@@ -67,15 +67,6 @@
 </template>
 
 <script setup lang="ts">
-  import {
-    BookOutlined,
-    BugOutlined,
-    InfoCircleOutlined,
-    LogoutOutlined,
-    SplitCellsOutlined,
-    UserOutlined,
-    WarningOutlined,
-  } from '@ant-design/icons-vue';
   import { BasicDrawer, useDrawerInner } from '@/components/Drawer';
   import { computed } from 'vue';
   import { DEFAULT_AVATAR } from '@/settings/designSetting';
@@ -86,6 +77,7 @@
   import { useI18n } from '@/hooks/web/useI18n';
   import { useDesign } from '@/hooks/web/useDesign';
   import { propTypes } from '@/utils/propTypes';
+  import Icon from '@/components/Icon/Icon.vue';
 
   const { prefixCls } = useDesign('header-user-drawer');
   const { t } = useI18n();
