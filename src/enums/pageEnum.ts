@@ -19,7 +19,11 @@ export enum PageEnum {
   // server pages
   SERVER_INDEX_PAGE = '/server/',
 
+  // user pages
+  USER_INDEX_PAGE = '/user/profile',
+
   // system pages
+
   SYSTEM_USER_PAGE = '/sys/user',
   SYSTEM_ROLE_PAGE = '/sys/role',
   SYSTEM_CRON_PAGE = '/sys/cron',

@@ -1,5 +1,5 @@
 <template>
-  <BasicDrawer v-bind="$attrs" @register="register" width="17%" :closable="false">
+  <BasicDrawer v-bind="$attrs" @register="register" :width="250" :closable="false">
     <template #title>
       <div class="flex items-center">
         <Avatar :src="getUserInfo.avatar" :size="40" />
@@ -11,11 +11,11 @@
     </template>
     <div :class="[prefixCls, `${prefixCls}--${theme}`]">
       <List :bordered="false" :split="false">
-        <ListItem :class="`${prefixCls}__list-item`">
+        <ListItem :class="`${prefixCls}__list-item`" @click="jumpTo(PageEnum.USER_INDEX_PAGE)">
           <span class="mr-2"><Icon icon="mingcute:profile-line" /></span>
           {{ t('sys.drawer.profile') }}
         </ListItem>
-        <ListItem :class="`${prefixCls}__list-item`">
+        <ListItem :class="`${prefixCls}__list-item`" @click="jumpTo(`${DOC_URL}`, false)">
           <span class="mr-2"> <Icon icon="tabler:book" /></span>
           {{ t('sys.drawer.docs') }}
         </ListItem>
@@ -23,35 +23,21 @@
           <span class="mr-2"> <Icon icon="icon-park:switch" /></span>
           {{ t('sys.drawer.front') }}
         </ListItem>
-        <ListItem :class="`${prefixCls}__list-item`">
+        <ListItem :class="`${prefixCls}__list-item`" @click="jumpTo(PageEnum.BASE_HOME)">
           <span class="mr-2"> <Icon icon="icon-park:switch" /></span>
           {{ t('sys.drawer.back') }}
         </ListItem>
         <Divider class="mt-1 mb-1" />
         <!--project zone-->
-        <ListItem
-          :class="`${prefixCls}__list-item`"
-          @click="
-            jumpTo(() => {
-              go(PageEnum.ERROR_LOG_PAGE);
-            })
-          "
-        >
+        <ListItem :class="`${prefixCls}__list-item`" @click="jumpTo(PageEnum.ERROR_LOG_PAGE)">
           <span class="mr-2"> <Icon icon="ant-design:exception-outlined" /></span>
           {{ t('sys.drawer.errorlog') }}
         </ListItem>
-        <ListItem :class="`${prefixCls}__list-item`" @click="toBugFix()">
+        <ListItem :class="`${prefixCls}__list-item`" @click="jumpTo(`${GITHUB_URL}/issue`, false)">
           <span class="mr-2"> <Icon icon="solar:bug-linear" /></span>
           {{ t('sys.drawer.bug') }}
         </ListItem>
-        <ListItem
-          :class="`${prefixCls}__list-item`"
-          @click="
-            jumpTo(() => {
-              go(PageEnum.ABOUT_PAGE);
-            })
-          "
-        >
+        <ListItem :class="`${prefixCls}__list-item`" @click="jumpTo(PageEnum.ABOUT_PAGE)">
           <span class="mr-2"> <Icon icon="octicon:info-16" /></span>
           {{ t('sys.drawer.projectInfo') }}
         </ListItem>
@@ -78,6 +64,8 @@
   import { useDesign } from '@/hooks/web/useDesign';
   import { propTypes } from '@/utils/propTypes';
   import Icon from '@/components/Icon/Icon.vue';
+  import { DOC_URL, GITHUB_URL } from '@/settings/siteSetting';
+  import { openWindow } from '@/utils';
 
   const { prefixCls } = useDesign('header-user-drawer');
   const { t } = useI18n();
@@ -92,13 +80,13 @@
   defineProps({
     theme: propTypes.oneOf(['dark', 'light']),
   });
-  const jumpTo = (fn: Function) => {
-    fn();
-    closeDrawer();
-  };
-
-  const toBugFix = () => {
-    window.open('https://github.com/dstgo/panel/issues');
+  const jumpTo = (url: string, internal = true) => {
+    if (internal) {
+      go(url);
+      closeDrawer();
+    } else {
+      openWindow(url);
+    }
   };
 </script>
 
