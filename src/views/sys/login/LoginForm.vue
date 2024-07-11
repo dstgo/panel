@@ -14,7 +14,11 @@
         v-model:value="formData.account"
         :placeholder="t('sys.login.userName')"
         class="fix-auto-fill"
-      />
+      >
+        <template #prefix>
+          <UserOutlined />
+        </template>
+      </Input>
     </FormItem>
     <FormItem name="password" class="enter-x">
       <InputPassword
@@ -22,7 +26,11 @@
         visibilityToggle
         v-model:value="formData.password"
         :placeholder="t('sys.login.password')"
-      />
+      >
+        <template #prefix>
+          <LockOutlined />
+        </template>
+      </InputPassword>
     </FormItem>
 
     <ARow class="enter-x">
@@ -46,7 +54,7 @@
 
     <FormItem class="enter-x">
       <Button
-        class="mb-4"
+        class="mb-2"
         type="primary"
         size="large"
         block
@@ -55,11 +63,11 @@
       >
         {{ t('sys.login.loginButton') }}
       </Button>
-
-      <Button size="large" block @click="setLoginState(LoginStateEnum.REGISTER)">
+      <Button type="link" size="small" block @click="setLoginState(LoginStateEnum.REGISTER)">
         {{ t('sys.login.registerButton') }}
       </Button>
     </FormItem>
+
     <Divider class="enter-x">{{ t('sys.login.otherSignIn') }}</Divider>
 
     <div class="flex justify-evenly enter-x" :class="`${prefixCls}-sign-in-way`">
@@ -73,7 +81,13 @@
   import { computed, reactive, ref, unref } from 'vue';
 
   import { Button, Checkbox, Col, Divider, Form, Input, Row } from 'ant-design-vue';
-  import { GithubFilled, QqOutlined, WechatFilled } from '@ant-design/icons-vue';
+  import {
+    GithubFilled,
+    LockOutlined,
+    QqOutlined,
+    UserOutlined,
+    WechatFilled,
+  } from '@ant-design/icons-vue';
   import LoginFormTitle from './LoginFormTitle.vue';
 
   import { useI18n } from '@/hooks/web/useI18n';
@@ -82,7 +96,6 @@
   import { useUserStore } from '@/store/modules/user';
   import { LoginStateEnum, useFormRules, useFormValid, useLoginState } from './useLogin';
   import { useDesign } from '@/hooks/web/useDesign';
-  //import { onKeyStroke } from '@vueuse/core';
 
   const ACol = Col;
   const ARow = Row;
