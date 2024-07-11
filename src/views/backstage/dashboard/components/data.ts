@@ -48,7 +48,7 @@ export const navItems: NavItem[] = [
   {
     title: t('routes.backstage.apikey.title'),
     icon: 'tabler:key',
-    color: '#DF8A3A',
+    color: '#F04D6A',
   },
   {
     title: t('routes.backstage.system.config'),

@@ -1,7 +1,7 @@
 <template>
   <Card :title="t('pages.dashboard.nav.title')">
     <CardGrid v-for="item in navItems" :key="item.title">
-      <span class="flex flex-col items-center">
+      <span class="flex flex-col items-center cursor-pointer">
         <Icon :icon="item.icon" :color="item.color" size="25" />
         <span class="text-md mt-2 truncate">{{ item.title }}</span>
       </span>
