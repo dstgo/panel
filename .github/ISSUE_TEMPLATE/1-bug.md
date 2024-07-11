@@ -6,33 +6,24 @@ labels: 'bug: pending triage'
 assignees: ''
 ---
 
-<!--
-抱歉，您遇到了一个错误。感谢您抽出宝贵的时间进行举报！
+**⚠️ Important ⚠️ Please check the following options before proceeding. If you ignore this template or do not provide key information, your issue will be closed directly**
 
-请尽可能填写以下模板。
+- [ ] Make sure your code is up-to-date or the reported bug can be reproduced in the latest version. (Some bugs may have been fixed in the latest code)
+- [ ] Searched for relevant keywords in Issues
+- [ ] Not a bug in the ant design vue component library
+- [ ] Not a bug in the vben-admin framework
 
-Ouch, sorry you’ve run into a bug.  Thank for taking the time to report it!
+### Description of the bug
 
-Please fill in as much of the template below as you’re able.
+Please clearly describe the specific manifestation of this bug.
 
-P.S. have you seen our support and contributing docs?
--->
+### Reproduce the bug
 
-**⚠️ IMPORTANT ⚠️ Please check the following list before proceeding. If you ignore this issue template, your issue will be directly closed.**
+Please describe the detailed steps to reproduce the bug in the demo page to ensure that we can understand and locate the problem.
 
-- [ ] Make sure the code is up to date. (Some bugs have been fixed in the latest code)
-- [ ] This is a concrete bug. For Q&A open a [GitHub Discussion](https://github.com/anncwb/vue-vben-admin/discussions) or join our [Discord](https://discord.gg/8GuAdwDhj6) Chat Server.
+## System information
 
-### Describe the bug
-
-A clear and concise description of what the bug is..
-
-### Reproduction
-
-Please describe the steps of the problem in detail to ensure that we can restore the correct problem
-
-## System Info
-
-- Operating System:
+- Operating system:
+- Browser version:
 - Node version:
 - pnpm version:
