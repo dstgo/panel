@@ -27,3 +27,12 @@ export const localeList: DropMenu[] = [
     event: LOCALE.EN_US,
   },
 ];
+
+export const availableLocaleList = () => {
+  return localeList.map((item) => {
+    return {
+      label: item.text,
+      value: item.event,
+    };
+  });
+};

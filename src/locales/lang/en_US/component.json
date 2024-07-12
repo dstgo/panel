@@ -5,8 +5,9 @@
     "toNavigate": "to navigate"
   },
   "countdown": {
-    "normalText": "Get SMS code",
-    "sendText": "Reacquire in {0}s"
+    "normalText": "Send Email",
+    "sendText": "Reacquire in {0}s",
+    "placeholder": "Input code"
   },
   "cropper": {
     "selectImage": "Select Image",

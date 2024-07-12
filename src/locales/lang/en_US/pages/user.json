@@ -1,2 +1,32 @@
 {
+  "section": {
+    "basic": "Information",
+    "password": "Password",
+    "email": "Email",
+    "preference": "Preference",
+    "third": "Third-Party Account"
+  },
+  "btn": {
+    "updateInfo": "Update",
+    "updatePassword": "Update",
+    "updateEmail": "Update",
+    "updatePreference": "Update",
+    "updateAvatar": "Change",
+    "bind": "Bind"
+  },
+  "label": {
+    "username": "Username",
+    "role": "Role",
+    "description": "Description",
+    "newPassword": "New password",
+    "confirmPassword": "Confirm password",
+    "verifyCode": "Verification Code",
+    "email": "Email",
+    "theme": "Theme",
+    "welcome": "Welcome",
+    "lang": "Language",
+    "github": "Github",
+    "qq": "QQ",
+    "wechat": "WeChat"
+  }
 }

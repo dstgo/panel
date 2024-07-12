@@ -1,2 +1,32 @@
 {
+  "section": {
+    "basic": "基本信息",
+    "password": "修改密码",
+    "email": "绑定邮箱",
+    "preference": "个人偏好",
+    "third": "第三方账号"
+  },
+  "btn": {
+    "updateInfo": "修改资料",
+    "updatePassword": "修改密码",
+    "updateEmail": "绑定邮箱",
+    "updatePreference": "修改偏好",
+    "updateAvatar": "更换头像",
+    "bind": "绑定"
+  },
+  "label": {
+    "username": "用户名",
+    "role": "角色",
+    "description": "备注",
+    "newPassword": "新密码",
+    "confirmPassword": "确认密码",
+    "verifyCode": "验证码",
+    "email": "电子邮箱",
+    "theme": "主题色",
+    "welcome": "欢迎语",
+    "lang": "默认语言",
+    "github": "Github",
+    "qq": "QQ",
+    "wechat": "微信"
+  }
 }
