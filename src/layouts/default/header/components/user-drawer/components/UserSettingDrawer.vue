@@ -2,7 +2,7 @@
   <BasicDrawer v-bind="$attrs" @register="register" :width="250" :closable="false">
     <template #title>
       <div class="flex items-center">
-        <Avatar :src="getUserInfo.avatar" :size="40" />
+        <Avatar :src="avatarFn(getUserInfo.avatar)" :size="40" />
         <div class="ml-3 flex flex-col">
           <span class="text-lg">{{ getUserInfo.username }}</span>
           <span class="text-secondary text-xs"> {{ getUserInfo.email }}</span>
@@ -12,40 +12,40 @@
     <div :class="[prefixCls, `${prefixCls}--${theme}`]">
       <List :bordered="false" :split="false">
         <ListItem :class="`${prefixCls}__list-item`" @click="jumpTo(PageEnum.USER_INDEX_PAGE)">
-          <span class="mr-2"><Icon icon="mingcute:profile-line" /></span>
-          {{ t('sys.drawer.profile') }}
+          <span class="mr-2"><Icon icon="heroicons-outline:user" /></span>
+          {{ t('layout.drawer.profile') }}
         </ListItem>
         <ListItem :class="`${prefixCls}__list-item`" @click="jumpTo(`${DOC_URL}`, false)">
           <span class="mr-2"> <Icon icon="tabler:book" /></span>
-          {{ t('sys.drawer.docs') }}
+          {{ t('layout.drawer.docs') }}
         </ListItem>
         <ListItem :class="`${prefixCls}__list-item`">
           <span class="mr-2"> <Icon icon="icon-park:switch" /></span>
-          {{ t('sys.drawer.front') }}
+          {{ t('layout.drawer.front') }}
         </ListItem>
         <ListItem :class="`${prefixCls}__list-item`" @click="jumpTo(PageEnum.BASE_HOME)">
           <span class="mr-2"> <Icon icon="icon-park:switch" /></span>
-          {{ t('sys.drawer.back') }}
+          {{ t('layout.drawer.back') }}
         </ListItem>
         <Divider class="mt-1 mb-1" />
         <!--project zone-->
         <ListItem :class="`${prefixCls}__list-item`" @click="jumpTo(PageEnum.ERROR_LOG_PAGE)">
           <span class="mr-2"> <Icon icon="ant-design:exception-outlined" /></span>
-          {{ t('sys.drawer.errorlog') }}
+          {{ t('layout.drawer.errorlog') }}
         </ListItem>
         <ListItem :class="`${prefixCls}__list-item`" @click="jumpTo(`${GITHUB_URL}/issue`, false)">
           <span class="mr-2"> <Icon icon="solar:bug-linear" /></span>
-          {{ t('sys.drawer.bug') }}
+          {{ t('layout.drawer.bug') }}
         </ListItem>
         <ListItem :class="`${prefixCls}__list-item`" @click="jumpTo(PageEnum.ABOUT_PAGE)">
           <span class="mr-2"> <Icon icon="octicon:info-16" /></span>
-          {{ t('sys.drawer.projectInfo') }}
+          {{ t('layout.drawer.projectInfo') }}
         </ListItem>
         <!--logout zone-->
         <Divider class="mt-1 mb-1" />
         <ListItem :class="`${prefixCls}__list-item`" @click="userStore.confirmLoginOut()">
           <span class="mr-2"><Icon icon="ri:logout-box-r-line" /></span>
-          {{ t('sys.drawer.logout') }}
+          {{ t('layout.drawer.logout') }}
         </ListItem>
       </List>
     </div>
@@ -55,7 +55,6 @@
 <script setup lang="ts">
   import { BasicDrawer, useDrawerInner } from '@/components/Drawer';
   import { computed } from 'vue';
-  import { DEFAULT_AVATAR } from '@/settings/designSetting';
   import { Avatar, Divider, List, ListItem } from 'ant-design-vue';
   import { useUserStore } from '@/store/modules/user';
   import { useGo } from '@/hooks/web/usePage';
@@ -66,6 +65,7 @@
   import Icon from '@/components/Icon/Icon.vue';
   import { DOC_URL, GITHUB_URL } from '@/settings/siteSetting';
   import { openWindow } from '@/utils';
+  import { avatarFn } from '@/utils/avatar';
 
   const { prefixCls } = useDesign('header-user-drawer');
   const { t } = useI18n();
@@ -74,7 +74,7 @@
   const userStore = useUserStore();
   const getUserInfo = computed(() => {
     const { avatar, username, email } = userStore.getUserInfo || {};
-    return { avatar: avatar || DEFAULT_AVATAR, username, email };
+    return { avatar: avatar, username, email };
   });
 
   defineProps({

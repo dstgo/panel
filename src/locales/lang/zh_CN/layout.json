@@ -17,6 +17,16 @@
     "lockScreenBtn": "锁定",
     "home": "首页"
   },
+  "drawer": {
+    "profile": "个人设置",
+    "docs": "项目文档",
+    "front": "切换前台",
+    "back": "切换后台",
+    "errorlog": "错误日志",
+    "bug": "问题反馈",
+    "projectInfo": "项目信息",
+    "logout": "退出登录"
+  },
   "multipleTab": {
     "reload": "重新加载",
     "close": "关闭标签页",

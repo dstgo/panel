@@ -3,6 +3,16 @@
     "onlinePreview": "Preview",
     "onlineDocument": "Document"
   },
+  "drawer": {
+    "profile": "Profile",
+    "docs": "Document",
+    "front": "Front stage",
+    "back": "Back stage",
+    "errorlog": "Error logs",
+    "bug": "Bug Feedback",
+    "projectInfo": "Project info",
+    "logout": "Log out"
+  },
   "header": {
     "dropdownChangeApi": "Change Api",
     "dropdownItemDoc": "Document",

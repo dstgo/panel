@@ -1,6 +1,6 @@
 <template>
   <div class="flex items-center flex-col md:flex-row">
-    <Avatar :src="userinfo.avatar || DEFAULT_AVATAR" :size="72" class="!mx-auto !block" />
+    <Avatar :src="avatarFn(userinfo.avatar)" :size="72" class="!mx-auto !block" />
     <div class="md:ml-6 flex flex-col justify-center md:mt-0 mt-2 md:text-left text-center">
       <h2 class="md:text-lg text-md mb-1">
         {{ userinfo.username }} <span class="hidden md:inline">, {{ t(greeting) }} !</span></h2
@@ -35,8 +35,8 @@
   import { computed } from 'vue';
   import { Avatar } from 'ant-design-vue';
   import { useUserStore } from '@/store/modules/user';
-  import { DEFAULT_AVATAR } from '@/settings/designSetting';
   import { useI18n } from '@/hooks/web/useI18n';
+  import { avatarFn } from '@/utils/avatar';
 
   const { t } = useI18n();
   const greeting = computed(() => {
