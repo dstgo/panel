@@ -32,8 +32,13 @@
     </Divider>
     <div class="md:w-1/3">
       <Form layout="vertical" class="md:ml-5">
+        <FormItem>
+          <span class="text-secondary">
+            <InfoCircleOutlined /> {{ t('pages.user.tip.autoLogout') }}</span
+          >
+        </FormItem>
         <FormItem :label="t('pages.user.label.newPassword')">
-          <InputPassword :value="formData.password.new" />
+          <StrengthMeter :value="formData.password.new" />
         </FormItem>
         <FormItem :label="t('pages.user.label.confirmPassword')">
           <InputPassword :value="formData.password.new" />
@@ -71,6 +76,11 @@
     </Divider>
     <div class="md:w-1/3">
       <Form :labelCol="{ span: 5 }" class="md:ml-5">
+        <FormItem>
+          <span class="text-secondary">
+            <InfoCircleOutlined /> {{ t('pages.user.tip.needRefresh') }}</span
+          >
+        </FormItem>
         <FormItem :label="t('pages.user.label.theme')">
           <Switch
             v-model:checked="formData.preference.darkTheme"
@@ -146,12 +156,14 @@
     Switch,
     Textarea,
   } from 'ant-design-vue';
+  import { InfoCircleOutlined } from '@ant-design/icons-vue';
   import Icon from '@/components/Icon/Icon.vue';
   import { CountdownInput } from '@/components/CountDown';
   import { computed, reactive } from 'vue';
   import { useUserStore } from '@/store/modules/user';
   import { useI18n } from '@/hooks/web/useI18n';
   import { availableLocaleList } from '@/settings/localeSetting';
+  import { StrengthMeter } from '@/components/StrengthMeter';
 
   const { t } = useI18n();
   const userStore = useUserStore();

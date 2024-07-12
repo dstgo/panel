@@ -28,5 +28,9 @@
     "github": "Github",
     "qq": "QQ",
     "wechat": "微信"
+  },
+  "tip": {
+    "autoLogout": "密码修改成功后需要重新登录",
+    "needRefresh": " 修改后需刷新页面才能生效"
   }
 }
