@@ -2,6 +2,7 @@
 // The axios configuration can be changed according to the project, just change the file, other files can be left unchanged
 
 import type { AxiosInstance, AxiosResponse } from 'axios';
+import axios from 'axios';
 import { clone } from 'lodash-es';
 import type { RequestOptions, Result } from '#/axios';
 import type { AxiosTransform, CreateAxiosOptions } from './axiosTransform';
@@ -9,14 +10,13 @@ import { VAxios } from './Axios';
 import { checkStatus } from './checkStatus';
 import { useGlobSetting } from '@/hooks/setting';
 import { useMessage } from '@/hooks/web/useMessage';
-import { RequestEnum, ContentTypeEnum } from '@/enums/httpEnum';
-import { isString, isUndefined, isNull, isEmpty } from '@/utils/is';
+import { ContentTypeEnum, RequestEnum } from '@/enums/httpEnum';
+import { isEmpty, isNull, isString, isUndefined } from '@/utils/is';
 import { getToken } from '@/utils/auth';
-import { setObjToUrlParams, deepMerge } from '@/utils';
+import { deepMerge, setObjToUrlParams } from '@/utils';
 import { useErrorLogStoreWithOut } from '@/store/modules/errorLog';
 import { useI18n } from '@/hooks/web/useI18n';
-import { joinTimestamp, formatRequestDate } from './helper';
-import axios from 'axios';
+import { formatRequestDate, joinTimestamp } from './helper';
 
 const globSetting = useGlobSetting();
 const urlPrefix = globSetting.urlPrefix;
@@ -173,10 +173,10 @@ const transform: AxiosTransform = {
 
     try {
       if (code === 'ECONNABORTED' && message.indexOf('timeout') !== -1) {
-        errMessage = t('sys.api.apiTimeoutMessage');
+        errMessage = t('api.apiTimeoutMessage');
       }
       if (err?.includes('Network Error')) {
-        errMessage = t('sys.api.networkExceptionMsg');
+        errMessage = t('api.networkExceptionMsg');
       }
 
       if (errMessage) {
@@ -248,6 +248,7 @@ function createAxios(opt?: Partial<CreateAxiosOptions>) {
     ),
   );
 }
+
 export const defHttp = createAxios();
 
 // other api url
