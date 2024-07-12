@@ -1,4 +1,10 @@
 {
+  "login": {
+    "title": "Login"
+  },
+  "errorLogList": {
+    "title": "Error Log"
+  },
   "node": {
     "title": "Node",
     "overview": "Node Overview"
@@ -9,7 +15,7 @@
   },
   "apikey": {
     "title": "Apikey",
-    "overview": "Token Overview"
+    "overview": "Apikey Overview"
   },
   "server": {
     "title": "Server",
@@ -17,7 +23,7 @@
   },
   "system": {
     "title": "System",
-    "user": "User",
+    "account": "Account",
     "role": "Permission",
     "cron": "Cron",
     "config": "Setting"
@@ -25,5 +31,8 @@
   "about": {
     "title": "About",
     "overview": "Project Information"
+  },
+  "user": {
+    "profile": "Personal Profile"
   }
 }

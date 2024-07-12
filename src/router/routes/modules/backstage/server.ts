@@ -11,7 +11,7 @@ const server: AppRouteModule = {
     orderNo: 50,
     hideChildrenInMenu: true,
     icon: 'uil:server-alt',
-    title: t('routes.backstage.server.title'),
+    title: t('routes.server.title'),
   },
   children: [
     {
@@ -19,7 +19,7 @@ const server: AppRouteModule = {
       name: 'ServerIndex',
       component: () => import('@/views/backstage/server/index.vue'),
       meta: {
-        title: t('routes.backstage.server.overview'),
+        title: t('routes.server.overview'),
       },
     },
   ],

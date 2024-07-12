@@ -11,7 +11,7 @@ const node: AppRouteModule = {
     orderNo: 10,
     hideChildrenInMenu: true,
     icon: 'lucide:network',
-    title: t('routes.backstage.node.title'),
+    title: t('routes.node.title'),
   },
   children: [
     {
@@ -19,7 +19,7 @@ const node: AppRouteModule = {
       name: 'NodeList',
       component: import('@/views/backstage/node/index.vue'),
       meta: {
-        title: t('routes.backstage.node.overview'),
+        title: t('routes.node.overview'),
       },
     },
   ],

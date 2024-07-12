@@ -11,7 +11,7 @@ const dashboard: AppRouteModule = {
     orderNo: 0,
     hideChildrenInMenu: true,
     icon: 'icon-park-outline:workbench',
-    title: t('routes.backstage.dashboard.title'),
+    title: t('routes.dashboard.title'),
   },
   children: [
     {
@@ -19,7 +19,7 @@ const dashboard: AppRouteModule = {
       name: 'Workbench',
       component: () => import('@/views/backstage/dashboard/index.vue'),
       meta: {
-        title: t('routes.backstage.dashboard.workbench'),
+        title: t('routes.dashboard.workbench'),
       },
     },
   ],

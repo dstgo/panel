@@ -12,7 +12,7 @@ const profile: AppRouteModule = {
     hideMenu: true,
     hideChildrenInMenu: true,
     icon: 'mdi:about-circle-outline',
-    title: t('routes.user.profile.title'),
+    title: t('routes.profile.title'),
     orderNo: 100000,
   },
   children: [
@@ -21,7 +21,7 @@ const profile: AppRouteModule = {
       name: 'UserProfile',
       component: () => import('@/views/user/profile/index.vue'),
       meta: {
-        title: t('routes.user.profile.title'),
+        title: t('routes.profile.title'),
         hideMenu: true,
       },
     },

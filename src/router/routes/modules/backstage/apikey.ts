@@ -11,7 +11,7 @@ const apikey: AppRouteModule = {
     orderNo: 100,
     hideChildrenInMenu: true,
     icon: 'tabler:key',
-    title: t('routes.backstage.apikey.title'),
+    title: t('routes.apikey.title'),
   },
   children: [
     {
@@ -19,7 +19,7 @@ const apikey: AppRouteModule = {
       name: 'ApiKeyList',
       component: () => import('@/views/backstage/apikey/index.vue'),
       meta: {
-        title: t('routes.backstage.apikey.overview'),
+        title: t('routes.apikey.overview'),
       },
     },
   ],

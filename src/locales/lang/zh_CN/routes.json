@@ -1,4 +1,10 @@
 {
+  "login": {
+    "title": "登录"
+  },
+  "errorLogList": {
+    "title": "错误日志"
+  },
   "node": {
     "title": "节点",
     "overview": "节点概览"
@@ -17,7 +23,7 @@
   },
   "system": {
     "title": "系统",
-    "user": "用户管理",
+    "account": "账号管理",
     "role": "权限管理",
     "cron": "定时任务",
     "config": "项目设置"
@@ -25,5 +31,8 @@
   "about": {
     "title": "关于",
     "overview": "项目信息"
+  },
+  "user": {
+    "profile": "个人设置"
   }
 }

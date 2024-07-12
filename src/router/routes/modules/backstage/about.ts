@@ -12,7 +12,7 @@ const about: AppRouteModule = {
     hideMenu: true,
     hideChildrenInMenu: true,
     icon: 'mdi:about-circle-outline',
-    title: t('routes.backstage.about.title'),
+    title: t('routes.about.title'),
     orderNo: 100000,
   },
   children: [
@@ -21,7 +21,7 @@ const about: AppRouteModule = {
       name: 'AboutPage',
       component: () => import('@/views/sys/about/index.vue'),
       meta: {
-        title: t('routes.backstage.about.overview'),
+        title: t('routes.about.overview'),
         hideMenu: true,
       },
     },

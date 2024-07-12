@@ -26,32 +26,32 @@ const { t } = useI18n();
 
 export const navItems: NavItem[] = [
   {
-    title: t('routes.backstage.node.title'),
+    title: t('routes.node.title'),
     icon: 'lucide:network',
     color: '#1fcada',
   },
   {
-    title: t('routes.backstage.server.title'),
+    title: t('routes.server.title'),
     icon: 'uil:server-alt',
     color: '#0960BD',
   },
   {
-    title: t('routes.backstage.system.user'),
+    title: t('routes.system.account'),
     icon: 'ph:users',
     color: '#0A9E3E',
   },
   {
-    title: t('routes.backstage.system.role'),
+    title: t('routes.system.role'),
     icon: 'mdi:administrator',
     color: '#FFBB59',
   },
   {
-    title: t('routes.backstage.apikey.title'),
+    title: t('routes.apikey.title'),
     icon: 'tabler:key',
     color: '#F04D6A',
   },
   {
-    title: t('routes.backstage.system.config'),
+    title: t('routes.system.config'),
     icon: 'ion:settings-outline',
     color: '#4d514d',
   },

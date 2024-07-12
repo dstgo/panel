@@ -10,16 +10,16 @@ const system: AppRouteModule = {
   meta: {
     orderNo: 110,
     icon: 'mdi:gear-outline',
-    title: t('routes.backstage.system.title'),
+    title: t('routes.system.title'),
   },
   children: [
     {
-      path: 'user',
+      path: 'account',
       name: 'SystemUser',
-      component: import('@/views/backstage/system/user/index.vue'),
+      component: import('@/views/backstage/system/account/index.vue'),
       meta: {
         icon: 'ph:users',
-        title: t('routes.backstage.system.user'),
+        title: t('routes.system.account'),
       },
     },
     {
@@ -28,7 +28,7 @@ const system: AppRouteModule = {
       component: import('@/views/backstage/system/role/index.vue'),
       meta: {
         icon: 'mdi:administrator',
-        title: t('routes.backstage.system.role'),
+        title: t('routes.system.role'),
       },
     },
     {
@@ -37,7 +37,7 @@ const system: AppRouteModule = {
       component: import('@/views/backstage/system/cron/index.vue'),
       meta: {
         icon: 'mdi:clock-outline',
-        title: t('routes.backstage.system.cron'),
+        title: t('routes.system.cron'),
       },
     },
     {
@@ -46,7 +46,7 @@ const system: AppRouteModule = {
       component: import('@/views/backstage/system/config/index.vue'),
       meta: {
         icon: 'lets-icons:setting-alt-line',
-        title: t('routes.backstage.system.config'),
+        title: t('routes.system.config'),
       },
     },
   ],
