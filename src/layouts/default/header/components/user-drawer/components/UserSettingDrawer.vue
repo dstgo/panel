@@ -33,7 +33,7 @@
           <span class="mr-2"> <Icon icon="ant-design:exception-outlined" /></span>
           {{ t('layout.drawer.errorlog') }}
         </ListItem>
-        <ListItem :class="`${prefixCls}__list-item`" @click="jumpTo(`${GITHUB_URL}/issue`, false)">
+        <ListItem :class="`${prefixCls}__list-item`" @click="jumpTo(`${GITHUB_URL}/issues`, false)">
           <span class="mr-2"> <Icon icon="solar:bug-linear" /></span>
           {{ t('layout.drawer.bug') }}
         </ListItem>
