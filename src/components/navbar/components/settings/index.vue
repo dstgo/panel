@@ -59,7 +59,7 @@
 
 <script setup lang="tsx">
 import { useAppStore, useUserStore } from '@/store';
-import config from '@/config/settings.json';
+import config from '@/config/defaultSetting';
 import { AppThem } from '@/store/modules/app/types';
 import Skin from '../skin';
 

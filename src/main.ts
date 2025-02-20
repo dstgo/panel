@@ -2,7 +2,6 @@ import { createApp } from 'vue';
 import ArcoVue, { Message } from '@arco-design/web-vue';
 import ArcoVueIcon from '@arco-design/web-vue/es/icon';
 import globalComponents from '@/components';
-import logo from '@/assets/logo.png';
 import router from './router';
 import store, { useAppStore } from './store';
 import directive from './directive';
@@ -29,23 +28,26 @@ app.use(store);
 app.use(globalComponents);
 app.use(directive);
 
-useAppStore()
-	.loadSystemSetting()
-	.then((res) => {
-		app.config.globalProperties.$rurl = formatUrl;
-		app.config.globalProperties.$logo = logo;
-		app.config.globalProperties.$formatTime = formatTime;
-		app.config.globalProperties.$parseTime = parseTime;
-		app.config.globalProperties.$densityList = densityList;
-		app.config.globalProperties.$genderList = genderList;
-		app.config.globalProperties.$hasPermission = hasPermission;
-		app.config.globalProperties.$debounce = debounce;
-		document.title = res.title;
-		if (res.logo) {
-			app.config.globalProperties.$logo = res.logo;
-		}
-		app.mount('#app');
-	})
-	.catch((data) => {
-		Message.error(data.message);
-	});
+const appStore = useAppStore();
+
+app.config.globalProperties.$logo = appStore.logo;
+app.config.globalProperties.$rurl = formatUrl;
+app.config.globalProperties.$formatTime = formatTime;
+app.config.globalProperties.$parseTime = parseTime;
+app.config.globalProperties.$densityList = densityList;
+app.config.globalProperties.$genderList = genderList;
+app.config.globalProperties.$hasPermission = hasPermission;
+app.config.globalProperties.$debounce = debounce;
+
+document.title = appStore.title;
+app.mount('#app');
+
+// useAppStore()
+// 	.loadSystemSetting()
+// 	.then((res) => {
+// 		document.title = res.title;
+// 		app.mount('#app');
+// 	})
+// 	.catch((data) => {
+// 		Message.error(data.message);
+// 	});
