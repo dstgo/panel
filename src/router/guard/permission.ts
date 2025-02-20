@@ -6,11 +6,11 @@ import { TagProps } from '@/store/modules/tab-bar/types';
 import { ListMenuByCurRole } from '@/api/manager/menu/api';
 import { Modal } from '@arco-design/web-vue';
 import useUser from '@/hooks/user';
-import Parser from '../routes/parser';
+import { Home } from '@/router/types';
+import Parser from '@/router/routes/parser';
 import { NOT_FOUND_ROUTE, REDIRECT_MAIN } from '../routes/base';
-import { Home } from '../types';
 
-export const WHITE_LIST = ['notFound', 'login'];
+export const WHITE_LIST = ['notFound', 'login', 'register', 'reset'];
 
 export function getHomeByMenu(router: Router): Home | undefined {
 	const appStore = useAppStore();

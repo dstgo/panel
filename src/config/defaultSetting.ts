@@ -19,7 +19,7 @@ export default {
 	layout: 'default',
 	skin: 'default',
 	watermark: '',
-	copyright: 'Copyright © 2024 dstgo.cn. All rights reserved.',
+	copyright: 'Copyright © 2025 dstgo.cn. All rights reserved.',
 	language: 'zh_CN',
 	animation: 'gp-slide-down'
 };
