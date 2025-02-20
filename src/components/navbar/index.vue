@@ -2,11 +2,11 @@
 	<div class="navbar">
 		<div class="left-side" :style="{ width: appStore.menuWidth + 'px' }">
 			<a-space>
-				<img alt="logo" :src="$logo" style="width: 50px; height: 50px" />
+				<img alt="logo" :src="$logo" style="width: 40px; height: 40px" />
 				<a-typography-title :style="{ margin: 0, fontSize: '18px', width: '100%', minWidth: titleWidth() }" :heading="5" :ellipsis="true">
 					{{ appStore.currentAppinfo.title }}
 				</a-typography-title>
-				<!-- <icon-menu-fold v-if="appStore.device === 'mobile'" style="font-size: 22px; cursor: pointer" @click="toggleDrawerMenu" /> -->
+				<!--				 <icon-menu-fold v-if="appStore.device === 'mobile'" style="font-size: 22px; cursor: pointer" @click="toggleDrawerMenu" />-->
 			</a-space>
 		</div>
 		<div v-if="appVisable" class="center-side">
