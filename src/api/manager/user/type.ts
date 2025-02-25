@@ -149,6 +149,22 @@ export interface UserLoginRequest {
 	captcha: string;
 }
 
+export interface UserRegisterRequest {
+	username: string;
+	password: string;
+	rePassword: string;
+	captchaId: string;
+	captcha: string;
+}
+
+export interface UserResetRequest {
+	username: string;
+	password: string;
+	rePassword: string;
+	captchaId: string;
+	captcha: string;
+}
+
 export interface UserLoginReply {
 	token: string;
 }

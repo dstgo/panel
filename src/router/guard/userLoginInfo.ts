@@ -10,7 +10,7 @@ export default function setupUserLoginInfoGuard(router: Router) {
 		const userStore = useUserStore();
 		if (isLogin()) {
 			if (to.name === 'login') {
-				next({ path: '/' });
+				next({ path: '/home' });
 				return;
 			}
 			if (userStore.role) {
@@ -31,7 +31,7 @@ export default function setupUserLoginInfoGuard(router: Router) {
 				}
 			}
 		} else {
-			if (to.name === 'login') {
+			if (to.name === 'login' || to.name === 'register' || to.name === 'reset') {
 				next();
 				return;
 			}
