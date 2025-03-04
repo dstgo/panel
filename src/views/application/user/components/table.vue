@@ -25,7 +25,7 @@
 			<template #avatar="{ record }">
 				<a-avatar>
 					<img v-if="record.avatarUrl" alt="avatar" :src="$rurl(record.avatarUrl, 100, 100)" />
-					<img v-else alt="avatar" :src="$logo" />
+					<img v-else alt="avatar" src="@/assets/images/logo.png" />
 				</a-avatar>
 			</template>
 
