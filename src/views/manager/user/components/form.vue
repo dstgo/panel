@@ -119,28 +119,6 @@
 					@focus="searchDepartment"
 				/>
 			</a-form-item>
-
-			<a-form-item
-				field="jobIds"
-				label="用户职位"
-				:rules="[
-					{
-						required: true,
-						message: '用户职位是必填项'
-					}
-				]"
-				:validate-trigger="['change', 'input']"
-			>
-				<a-select
-					v-model="form.jobIds"
-					placeholder="请选择职位"
-					:scrollbar="true"
-					:options="jobs"
-					multiple
-					@search="searchFactory.Search"
-					@dropdown-reach-bottom="searchFactory.NextSearch"
-				></a-select>
-			</a-form-item>
 		</a-form>
 	</a-drawer>
 </template>
@@ -149,14 +127,12 @@
 import { ref, watch } from 'vue';
 import { Message } from '@arco-design/web-vue';
 import { CreateUser, UpdateUser } from '@/api/manager/user/api';
-import { CreateUserRequest, Department, Role, Job, UpdateUserRequest } from '@/api/manager/user/type';
-import { ListJob } from '@/api/manager/job/api';
+import { CreateUserRequest, Department, Role, UpdateUserRequest } from '@/api/manager/user/type';
 import { ListDepartment } from '@/api/manager/department/api';
 import { ListRole } from '@/api/manager/role/api';
-import { Search, Result } from '@/utils/search';
 import test from '@/utils/test';
 
-type Data = UpdateUserRequest & CreateUserRequest & { jobIds: number[]; roleIds: number[]; roles: Role[]; jobs: Job[] };
+type Data = UpdateUserRequest & CreateUserRequest & { roleIds: number[]; roles: Role[] };
 
 const formRef = ref();
 const visible = ref(false);
@@ -165,7 +141,6 @@ const props = defineProps<{
 	data: Data;
 }>();
 
-const jobs = ref<Result[]>([]);
 const roles = ref<Role[]>([]);
 const departments = ref<Department[]>([]);
 const form = ref({} as Data);
@@ -182,23 +157,6 @@ const phoneValidate = (value, cb) => {
 		cb('电话格式不正确');
 	}
 };
-
-const searchFactory = new Search(
-	jobs.value,
-	async (req): Promise<Result[]> => {
-		const res: Result[] = [];
-		const { data } = await ListJob({ ...req, name: req.query as string | undefined });
-		data.list.forEach((item) => {
-			res.push({ label: item.name, value: item.id });
-		});
-		return res;
-	},
-	(val): boolean => {
-		return form.value.jobIds.includes(val as number);
-	}
-);
-
-searchFactory.Search();
 
 const searchRole = async () => {
 	const { data } = await ListRole();
@@ -256,16 +214,6 @@ watch(
 				ids.push(item.id);
 			});
 			form.value.roleIds = ids;
-		}
-		if (val.jobs) {
-			const ids: number[] = [];
-			val.jobs.forEach((item) => {
-				ids.push(item.id);
-				if (!searchFactory.IsExist(item.id)) {
-					jobs.value.push({ label: item.name, value: item.id });
-				}
-			});
-			form.value.jobIds = ids;
 		}
 	}
 );

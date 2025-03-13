@@ -25,7 +25,6 @@ const useUserStore = defineStore('user', {
 		updatedAt: 0,
 		role: undefined,
 		roles: [],
-		jobs: [],
 		department: undefined
 	}),
 

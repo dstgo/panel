@@ -62,6 +62,7 @@ const useAppStore = defineStore('app', {
 					app = item;
 				}
 			});
+			console.log(app);
 			return app;
 		}
 	},

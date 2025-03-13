@@ -3,15 +3,12 @@
 		<div class="header">
 			<a-space :size="12" direction="vertical" align="center" style="z-index: 99">
 				<Upload
-					:files="[{ url: userInfo.avatar ? userInfo.avatar : $logo }]"
+					:files="[{ url: userInfo.avatar ? userInfo.avatar : logo }]"
 					:limit="1"
 					:auto-upload="true"
 					directory-path="manager/avatar"
 					@change="handleUploadAvatar"
 				></Upload>
-				<!-- <a-avatar :size="100">
-					<img alt="avatar" :src="userInfo.avatar ? userInfo.avatar : $logo" />
-				</a-avatar> -->
 				<a-typography-title :heading="6" :style="{ margin: 0, color: '#fff' }">
 					{{ userInfo.name }}
 				</a-typography-title>
@@ -65,6 +62,7 @@
 import { UpdateCurrentUser } from '@/api/manager/user/api';
 import { useUserStore } from '@/store';
 import { FileItem, Message } from '@arco-design/web-vue';
+import logo from '@/assets/images/logo.png';
 
 const userInfo = useUserStore();
 
@@ -74,15 +72,6 @@ const handleUploadAvatar = (list: FileItem[]) => {
 		Message.success('头像更换成功');
 	});
 };
-// const uploadCallback = async (files: any[]) => {
-//   // todo更新用户信息
-//   if (files.length) {
-//     console.log({ id: userInfo.id, avatar: files[0].url });
-//     await updateUser({ id: userInfo.id, avatar: files[0].url });
-//     Message.success('更换头像成功');
-//     // userInfo.info();
-//   }
-// };
 </script>
 
 <style scoped lang="less">

@@ -10,12 +10,6 @@ export interface Role {
 	keyword: string;
 }
 
-export interface Job {
-	id: number;
-	name: string;
-	keyword: string;
-}
-
 export interface Department {
 	id: number;
 	name: string;
@@ -38,7 +32,6 @@ export interface GetUserReply {
 	createdAt: number;
 	updatedAt: number;
 	roles: Role[];
-	jobs: Job[];
 	department?: Department;
 	role?: Role;
 }
@@ -81,7 +74,6 @@ export interface CreateUserRequest {
 	gender: string;
 	phone: string;
 	email: string;
-	jobIds: number[];
 	roleIds: number[];
 }
 
@@ -96,7 +88,6 @@ export interface UpdateUserRequest {
 	gender: string;
 	phone: string;
 	email: string;
-	jobIds: number[];
 	roleIds: number[];
 }
 

@@ -110,7 +110,7 @@ const handleSubmit = async ({ errors, values }: { errors: Record<string, Validat
 			if (redirect && router.hasRoute(redirect as string)) {
 				router.push({ name: redirect as string, query: { ...othersQuery } });
 			} else {
-				router.push({ path: '/home', query: { ...othersQuery } });
+				router.push({ path: '/dashboard', query: { ...othersQuery } });
 			}
 
 			Message.success('登陆成功');

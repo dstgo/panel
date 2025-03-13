@@ -5,7 +5,7 @@ export default {
 	menu: true,
 	hideMenu: false,
 	menuCollapse: false,
-	footer: true,
+	footer: false,
 	themeColor: '#3491FA',
 	menuWidth: 220,
 	globalSettings: false,
