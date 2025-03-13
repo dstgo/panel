@@ -6,7 +6,7 @@
 			<Table
 				:columns="columns"
 				:loading="loading"
-				:data="tableData"
+				:data="tableData.filter((v) => v.id > 0)"
 				:size="size"
 				@add="handleTableAdd"
 				@update="handleTableUpdate"
@@ -41,7 +41,7 @@ const formRef = ref();
 const form = ref<Role>({} as Role);
 const { setLoading } = useLoading(true);
 const loading = ref(false);
-const tableData = ref<TableData[]>();
+const tableData = ref<TableData[]>([]);
 const departments = ref<Department[]>([]);
 const menus = ref<Menu[]>([]);
 const menuKeys = ref<number[]>([]);
@@ -97,11 +97,14 @@ const handleGetMenu = async () => {
 	menus.value = data.list;
 };
 
+const emptyData = { id: 0, name: '无' };
+
 // handleGet 处理查询
 const handleGet = async () => {
 	setLoading(true);
 	try {
 		const { data } = await ListRole();
+		data.list.unshift(emptyData);
 		tableData.value = data.list;
 	} finally {
 		setLoading(false);

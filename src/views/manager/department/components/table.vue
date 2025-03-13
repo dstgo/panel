@@ -20,13 +20,13 @@
 					新建
 				</a-tag>
 
-				<a-tag v-if="record.id != 1" v-permission="'manager:department:update'" color="orangered" @click="emit('update', record)">
+				<a-tag v-permission="'manager:department:update'" color="orangered" @click="emit('update', record)">
 					<template #icon><icon-edit /></template>
 					修改
 				</a-tag>
 
 				<template v-if="$hasPermission('manager:department:delete')">
-					<a-popconfirm v-if="record.id != 1" content="您确认删除此部门" type="warning" @ok="handleDelete(record.id)">
+					<a-popconfirm v-if="record.parentId != 0" content="您确认删除此部门" type="warning" @ok="handleDelete(record.id)">
 						<a-tag color="red">
 							<template #icon><icon-delete /></template>
 							删除

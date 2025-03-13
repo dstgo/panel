@@ -6,7 +6,7 @@
 			<Table
 				:columns="columns"
 				:loading="loading"
-				:data="tableData"
+				:data="tableData.filter((v) => v.id > 0)"
 				:size="size"
 				@add="handleTableAdd"
 				@update="handleTableUpdate"
@@ -33,7 +33,7 @@ const formRef = ref();
 const form = ref<Department>({} as Department);
 const { setLoading } = useLoading(true);
 const loading = ref(false);
-const tableData = ref<TableData[]>();
+const tableData = ref<TableData[]>([]);
 const size = ref<TableSize>('medium');
 const columns = ref<TableColumn[]>([
 	{
@@ -62,11 +62,14 @@ const columns = ref<TableColumn[]>([
 	}
 ]);
 
+const emptyData = { id: 0, name: '无' };
+
 // handleGet 处理查询
 const handleGet = async () => {
 	setLoading(true);
 	try {
 		const { data } = await ListDepartment();
+		data.list.unshift(emptyData);
 		tableData.value = data.list;
 	} finally {
 		setLoading(false);

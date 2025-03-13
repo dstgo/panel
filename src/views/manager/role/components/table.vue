@@ -21,7 +21,9 @@
 
 		<template v-if="$hasPermission('manager:role:menu')" #menu="{ record }">
 			<a-tag v-if="record.id != 1" class="cursor-pointer" color="arcoblue" @click="emit('updateMenu', record)">
-				<template #icon><icon-menu /></template>
+				<template #icon>
+					<icon-menu />
+				</template>
 				菜单管理
 			</a-tag>
 		</template>
@@ -29,20 +31,26 @@
 		<template #operations="{ record }">
 			<a-space class="cursor-pointer">
 				<a-tag v-permission="'manager:role:add'" color="arcoblue" @click="emit('add', record.id)">
-					<template #icon><icon-plus /></template>
+					<template #icon>
+						<icon-plus />
+					</template>
 					新建
 				</a-tag>
 
-				<a-tag v-if="record.id != 1" v-permission="'manager:role:update'" color="orangered" @click="emit('update', record)">
-					<template #icon><icon-edit /></template>
+				<a-tag v-permission="'manager:role:update'" color="orangered" @click="emit('update', record)">
+					<template #icon>
+						<icon-edit />
+					</template>
 					修改
 				</a-tag>
 
 				<!--- 自定义指令无法绑定到组建上 -->
 				<template v-if="$hasPermission('manager:role:delete')">
-					<a-popconfirm v-if="record.id != 1" content="您确认删除此菜单" type="warning" @ok="handleDelete(record.id)">
+					<a-popconfirm v-if="record.parentId != 0" content="您确认删除此菜单" type="warning" @ok="handleDelete(record.id)">
 						<a-tag color="red">
-							<template #icon><icon-delete /></template>
+							<template #icon>
+								<icon-delete />
+							</template>
 							删除
 						</a-tag>
 					</a-popconfirm>
