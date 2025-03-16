@@ -15,7 +15,7 @@ export const REDIRECT_MAIN: RouteRecordRaw = {
 		{
 			path: '/redirect/:path',
 			name: REDIRECT_ROUTE_NAME,
-			component: () => import('@/views/redirect/index.vue'),
+			component: () => import('@/views/base/redirect/index.vue'),
 			meta: {
 				requiresAuth: true,
 				hideInMenu: true
@@ -27,13 +27,13 @@ export const REDIRECT_MAIN: RouteRecordRaw = {
 export const NOT_FOUND_ROUTE: RouteRecordRaw = {
 	path: '/:pathMatch(.*)*',
 	name: 'notFound',
-	component: () => import('@/views/not-found/index.vue')
+	component: () => import('@/views/base/not-found/index.vue')
 };
 
 export const LOGIN_ROUTE: RouteRecordRaw = {
 	path: 'login',
 	name: 'login',
-	component: () => import('@/views/auth/components/login.vue'),
+	component: () => import('@/views/base/auth/components/login.vue'),
 	meta: {
 		requiresAuth: false,
 		hideInMenu: true
@@ -43,7 +43,7 @@ export const LOGIN_ROUTE: RouteRecordRaw = {
 export const REGISTER_ROUTE: RouteRecordRaw = {
 	path: 'register',
 	name: 'register',
-	component: () => import('@/views/auth/components/register.vue'),
+	component: () => import('@/views/base/auth/components/register.vue'),
 	meta: {
 		requiresAuth: false,
 		hideInMenu: true
@@ -53,7 +53,7 @@ export const REGISTER_ROUTE: RouteRecordRaw = {
 export const RESET_ROUTE: RouteRecordRaw = {
 	path: 'reset',
 	name: 'reset',
-	component: () => import('@/views/auth/components/reset.vue'),
+	component: () => import('@/views/base/auth/components/reset.vue'),
 	meta: {
 		requiresAuth: false,
 		hideInMenu: true
@@ -64,7 +64,7 @@ export const AUTH_ROUTE: RouteRecordRaw = {
 	path: '/auth',
 	name: 'base',
 	redirect: LOGIN_ROUTE.name,
-	component: () => import('@/views/auth/index.vue'),
+	component: () => import('@/views/base/auth/index.vue'),
 	meta: {
 		requiresAuth: false
 	},

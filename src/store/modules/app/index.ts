@@ -101,6 +101,7 @@ const useAppStore = defineStore('app', {
 			this.apps = [];
 			this.app = '';
 			this.homes = new Map();
+			this.$reset();
 		},
 		setApps(apps: App[]) {
 			this.apps = apps;

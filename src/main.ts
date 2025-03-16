@@ -40,13 +40,3 @@ app.config.globalProperties.$debounce = debounce;
 
 document.title = appStore.title;
 app.mount('#app');
-
-// useAppStore()
-// 	.loadSystemSetting()
-// 	.then((res) => {
-// 		document.title = res.title;
-// 		app.mount('#app');
-// 	})
-// 	.catch((data) => {
-// 		Message.error(data.message);
-// 	});

@@ -2,8 +2,8 @@
 	<div class="navbar">
 		<div class="left-side" :style="{ width: appStore.menuWidth + 'px' }">
 			<a-space>
-				<img alt="logo" :src="$logo" style="width: 40px; height: 40px" />
-				<a-typography-title :style="{ margin: 0, fontSize: '18px', width: '100%', minWidth: titleWidth() }" :heading="5" :ellipsis="true">
+				<img alt="logo" src="@/assets/images/logo.png" style="width: 40px; height: 40px" />
+				<a-typography-title :style="{ margin: 0, fontSize: '18px', width: '100%', minWidth: titleWidth() }" :heading="5" :ellipsis="false">
 					{{ appStore.currentAppinfo.title }}
 				</a-typography-title>
 				<!--				 <icon-menu-fold v-if="appStore.device === 'mobile'" style="font-size: 22px; cursor: pointer" @click="toggleDrawerMenu" />-->
@@ -23,33 +23,6 @@
 					</a-button>
 				</a-tooltip>
 			</li>
-			<!-- <li>
-        <a-tooltip content="消息通知">
-          <div class="message-box-trigger">
-            <a-badge :count="9" dot>
-              <a-button
-                class="nav-btn"
-                type="outline"
-                :shape="'circle'"
-                @click="setPopoverVisible"
-              >
-                <icon-notification />
-              </a-button>
-            </a-badge>
-          </div>
-        </a-tooltip>
-        <a-popover
-          trigger="click"
-          :arrow-style="{ display: 'none' }"
-          :content-style="{ padding: 0, minWidth: '400px' }"
-          content-class="message-popover"
-        >
-          <div ref="refBtn" class="ref-btn"></div>
-          <template #content>
-            <message-box />
-          </template>
-        </a-popover>
-      </li> -->
 			<li>
 				<a-tooltip :content="isFullscreen ? '点击退出全屏模式' : '点击切换全屏模式'">
 					<a-button class="nav-btn" type="outline" :shape="'circle'" @click="toggleFullScreen">
@@ -73,7 +46,7 @@
 				<a-dropdown trigger="click">
 					<a-avatar :size="32" :style="{ marginRight: '8px', cursor: 'pointer' }">
 						<img v-if="avatar" alt="avatar" :src="avatar" />
-						<img v-else alt="avatar" :src="$logo" />
+						<img v-else alt="avatar" src="@/assets/images/logo.png" />
 					</a-avatar>
 					<template #content>
 						<a-dsubmenu v-if="roles.length > 1" trigger="hover">
@@ -117,7 +90,6 @@ import { useAppStore, useUserStore } from '@/store';
 import { useDark, useFullscreen, useToggle } from '@vueuse/core';
 import Userinfo from '../userinfo/index.vue';
 import App from './app.vue';
-// import MessageBox from '../message-box/index.vue';
 import settings from './components/settings/index.vue';
 
 const showUserinfoVisible = ref(false);
