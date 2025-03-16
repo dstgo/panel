@@ -75,7 +75,7 @@ const getCurrentTemplate = async (id: number) => {
 
 const handleSyncConfig = async (data: SyncConfigureRequest) => {
 	await SyncConfigure(data);
-	Message.success('配置同步成功');
+	Message.success('配置推送成功');
 };
 
 const handleSwitchTemplate = () => {

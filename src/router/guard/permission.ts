@@ -8,9 +8,13 @@ import { Modal } from '@arco-design/web-vue';
 import useUser from '@/hooks/user';
 import { Home } from '@/router/types';
 import Parser from '@/router/routes/parser';
+import { isLogin } from '@/utils/auth';
+import { loginRedirect } from '@/router/utils/utils';
 import { NOT_FOUND_ROUTE, REDIRECT_MAIN } from '../routes/base';
 
-export const WHITE_LIST = ['notFound', 'login', 'register', 'reset'];
+export const WHITE_LIST = ['notFound'];
+
+export const AUTH_LIST = ['login', 'register', 'reset'];
 
 export function getHomeByMenu(router: Router): Home | undefined {
 	const appStore = useAppStore();
@@ -53,6 +57,7 @@ export default function setupPermissionGuard(router: Router) {
 	router.beforeEach(async (to, from, next) => {
 		const appStore = useAppStore();
 		const tabStore = useTabBarStore();
+		const hasLogin = isLogin();
 
 		// 白名单直接路由
 		if (WHITE_LIST.includes(to.name as string)) {
@@ -61,7 +66,7 @@ export default function setupPermissionGuard(router: Router) {
 			return;
 		}
 
-		if (!appStore.apps.length) {
+		if (hasLogin && !appStore.apps.length) {
 			// 从服务端获取菜单
 			const { data } = await ListMenuByCurRole();
 			if (!data || !data.list.length) {
@@ -108,7 +113,7 @@ export default function setupPermissionGuard(router: Router) {
 			}
 			tabStore.setHomeTag(homeTransTag(home as Home));
 			// 默认跳转到首页
-			if (to.path === '/') {
+			if (to.path === '/' || AUTH_LIST.includes(to.name as string)) {
 				next({ path: appStore.appHomePath, replace: true });
 			} else {
 				next({ ...to, replace: true });
@@ -116,6 +121,7 @@ export default function setupPermissionGuard(router: Router) {
 		} else {
 			next();
 		}
+
 		NProgress.done();
 	});
 }

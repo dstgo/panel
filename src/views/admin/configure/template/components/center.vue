@@ -18,7 +18,7 @@
 			<div class="header-item">
 				<a-button v-permission="'configure:configure:sync'" type="primary" :disabled="!props.template" @click="handleClickSync">
 					<template #icon><icon-sync /></template>
-					同步配置
+					推送配置
 				</a-button>
 			</div>
 		</div>
@@ -240,7 +240,7 @@ const handleClickPreview = () => {
 const handleClickSync = () => {
 	envVisible.value = true;
 	envForm.value.envId = undefined;
-	envForm.value.title = '同步';
+	envForm.value.title = '推送';
 	operator.value = SYNC_CONFIGURE;
 };
 

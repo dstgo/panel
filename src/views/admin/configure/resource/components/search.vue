@@ -60,6 +60,8 @@ const formRef = ref();
 const form = ref<ListResourceRequest>({} as ListResourceRequest);
 
 const reset = () => {
+	form.value.tag = undefined;
+	form.value.serverId = undefined;
 	form.value.keyword = undefined;
 };
 

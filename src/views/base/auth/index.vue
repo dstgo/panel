@@ -1,12 +1,12 @@
 <template>
 	<div class="container">
 		<div class="logo">
-			<img alt="logo" style="width: 40px" src="@/assets/images/logo.png" />
+			<img alt="logo" style="width: 40px" src="../../../assets/images/logo.png" />
 			<div class="logo-text">{{ appStore.name }}</div>
 		</div>
 		<div class="login-box">
 			<div class="login-box-left">
-				<img src="@/assets/images/login-bg.png" alt="login left image" class="login-box-left-image" />
+				<img src="../../../assets/images/login-bg.png" alt="login left image" class="login-box-left-image" />
 				<div class="login-box-left-desc">
 					<div class="login-box-left-title">{{ appStore.desc }}</div>
 					<div class="login-box-left-sub-title">{{ appStore.subDesc }}</div>

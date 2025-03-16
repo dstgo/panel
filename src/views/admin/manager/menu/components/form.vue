@@ -173,7 +173,7 @@
 			</template>
 
 			<!--菜单类型为必填-->
-			<template v-if="form.type === 'M'">
+			<template v-if="['M', 'R'].includes(form.type)">
 				<a-form-item
 					field="path"
 					label="菜单路径"

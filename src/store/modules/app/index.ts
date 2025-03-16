@@ -62,7 +62,6 @@ const useAppStore = defineStore('app', {
 					app = item;
 				}
 			});
-			console.log(app);
 			return app;
 		}
 	},
@@ -102,6 +101,7 @@ const useAppStore = defineStore('app', {
 			this.apps = [];
 			this.app = '';
 			this.homes = new Map();
+			this.$reset();
 		},
 		setApps(apps: App[]) {
 			this.apps = apps;

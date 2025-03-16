@@ -70,6 +70,7 @@ const searchFieldFactory = new Search(
 searchFieldFactory.Search();
 
 const reset = () => {
+	form.value.serverId = undefined;
 	form.value.keyword = undefined;
 };
 

@@ -11,11 +11,15 @@
 
 		<a-col :span="12" class="tool">
 			<a-tooltip content="刷新">
-				<div class="action-icon" @click="emit('refresh')"><icon-refresh size="18" /></div>
+				<div class="action-icon" @click="emit('refresh')">
+					<icon-refresh size="18" />
+				</div>
 			</a-tooltip>
 			<a-dropdown @select="handleSelectDensity">
 				<a-tooltip content="字体大小">
-					<div class="action-icon"><icon-line-height size="18" /></div>
+					<div class="action-icon">
+						<icon-line-height size="18" />
+					</div>
 				</a-tooltip>
 				<template #content>
 					<a-doption v-for="(val, key) in $densityList" :key="key" :value="key" :class="{ active: key === size }">
@@ -25,7 +29,9 @@
 			</a-dropdown>
 			<a-tooltip content="行设置">
 				<a-popover trigger="click" position="bl" @popup-visible-change="popupVisibleChange">
-					<div class="action-icon"><icon-settings size="18" /></div>
+					<div class="action-icon">
+						<icon-settings size="18" />
+					</div>
 					<template #content>
 						<div id="tableSetting">
 							<div v-for="(item, index) in showColumns" :key="item.dataIndex" class="setting">
